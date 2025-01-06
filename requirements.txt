@@ -1,7 +1,9 @@
 python-dotenv
 langchain
 langchain-community
+langchain-core
 langchain-google-genai
+langchain-ollama
 chromadb
 tiktoken
 sentence-transformers
@@ -10,3 +12,4 @@ firecrawl-py
 langchainhub
 wikipedia
 tavily-python
+ollama

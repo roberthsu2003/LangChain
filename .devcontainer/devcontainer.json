@@ -8,7 +8,9 @@
 	},
 	"features": {
 		"ghcr.io/devcontainers/features/git:1": {}
-	}
+	},
+	//使用--newwork=host,代表直接使用host的網路
+	"runArgs": ["--network=host","--name","python_langchain"]
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},

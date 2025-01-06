@@ -3,6 +3,7 @@ langchain
 langchain-community
 langchain-core
 langchain-google-genai
+langchain-google-vertexai
 langchain-ollama
 chromadb
 tiktoken

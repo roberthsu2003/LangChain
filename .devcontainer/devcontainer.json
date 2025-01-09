@@ -7,10 +7,11 @@
 		"dockerfile": "Dockerfile"
 	},
 	"features": {
-		"ghcr.io/devcontainers/features/git:1": {}
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/devcontainers/features/github-cli:1":{}
 	},
 	//使用--newwork=host,代表直接使用host的網路
-	"runArgs": ["--network=host","--name","python_langchain"]
+	"runArgs": ["--network=host","--name","python_langchain"],
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -21,8 +22,17 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "python --version",
 
-	// Configure tool-specific properties.
-	// "customizations": {},
+	//安裝vscode的擴充套件,繁體中文,jupyter,python開發套件
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"MS-CEINTL.vscode-language-pack-zh-hant",
+				"ms-toolsai.jupyter",
+				"ms-python.python"
+			]
+		}
+	}
+
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"

@@ -6,6 +6,8 @@
 
 **LangChain 作為生成式 AI 開發的核心工具，將語言模型簡化為模組化組件，使您能夠迅速構建端到端的 AI 應用。**
 
+## 第0章 [何謂代理(agency workflow)](./何謂AIAgent)
+
 ## 第1章 建立langchain開發環境
 
 ## 第2章 聊天模型(Chat Models)

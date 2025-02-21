@@ -88,6 +88,12 @@ print(similarity[0][0]) #愈接近 1 表示兩個句子愈相似
 ```
 
 
+**範例-使用huggingface的api,並將向量資料儲存至Chromda內**
+
+```python
+
+```
+
 
 
 

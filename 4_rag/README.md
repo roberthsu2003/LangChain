@@ -3,5 +3,5 @@
 
 ## Chroma 開源向量資料庫
 - [基本操作](./chroma)
-- [句子嵌入(sentence embedding)](./chroma/sentence_embedding.md)
-- 
+- [建立句子的向量資料(sentence embedding)](./chroma/sentence_embedding.md)
+- [將向量資料儲儲存至Chroma1](./chroma/add_data_chromb.md)

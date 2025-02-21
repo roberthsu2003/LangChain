@@ -13,3 +13,4 @@ langchainhub
 wikipedia
 tavily-python
 ollama
+ipywidgets

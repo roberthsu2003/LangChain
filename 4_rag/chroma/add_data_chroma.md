@@ -1,7 +1,7 @@
 # 將向量資料加入Chroma
 ## 直接使用huggingface的api
 - 優點不用使用huggingface hub server(不需要huggingface apikey)
-- 缺點是要手動加入
+- 缺點是要手動加入,query無法使用query_texts
 
 ```python
 import chromadb
@@ -39,6 +39,6 @@ my_collection.query(
 )
 ```
 
-## 不直接使用huggingface的api
+
 
 

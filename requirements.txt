@@ -14,3 +14,4 @@ wikipedia
 tavily-python
 ollama
 ipywidgets
+scikit-learn

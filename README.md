@@ -20,3 +20,6 @@
 
 ## 第6章 Agents & Tools
 
+> 參考資料[langchain-crash-course repo](https://github.com/bhancockio/langchain-crash-course)
+
+> 參考影片[langchain-crash-course](https://youtu.be/yF9kGESAi3M?si=yfU54HMUf9yrm0kW)

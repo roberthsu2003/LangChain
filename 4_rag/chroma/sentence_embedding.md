@@ -24,11 +24,72 @@ multilingual-e5-large 是 E5（Embedding from Encoder-Enhanced Representations�
 
 ✅ 適合大規模資訊檢索（IR, Information Retrieval）
 
-**如何使用 multilingual-e5-large 來處理中文文本？**
+**範例示範-使用huggingface的api**
 
-**使用huggingface的sentence-transformers**
+- 如何使用 multilingual-e5-large 來處理中文文本？
+- 使用huggingface的sentence-transformers
+
+1. **安裝huggingface的module**
 
 ```bash
-
+!pip install sentence-transformers ipywidgets scikit-learn
 ```
+
+2. **載入模型**
+
+```python
+from sentence_transformers import SentenceTransformer
+
+#載入 Hugging Face 的 multilingual-e5-large
+model = SentenceTransformer('intfloat/multilingual-e5-large')
+```
+
+3. **建立文字向量(embedding)**
+
+```python
+#測試中文句子
+sentences = ["這是一個測試句子。", "這是一個示範文本。"]
+
+#計算句子的向量
+embeddings = model.encode(sentences)
+
+#印出句子的向量
+for sentence, embedding in zip(sentences, embeddings):
+    print("Sentence:", sentence)
+    print("Embedding:", embedding)
+    print("")
+
+#顯示向量的維度
+print("Embedding size:", embeddings.shape)
+
+#==output==
+Sentence: 這是一個測試句子。
+Embedding: [ 0.03942354 -0.00824007 -0.02109805 ... -0.02315794 -0.02216279
+  0.02347509]
+
+Sentence: 這是一個示範文本。
+Embedding: [ 0.03596958 -0.00765795 -0.02831858 ... -0.00705489 -0.02518469
+  0.0199751 ]
+
+Embedding size: (2, 1024)
+```
+
+4. **計算兩個中文句子的相似度**
+
+```python
+from sklearn.metrics.pairwise import cosine_similarity
+
+#計算兩個句子的相似度
+similarity = cosine_similarity([embeddings[0]], [embeddings[1]])
+print(similarity[0][0]) #愈接近 1 表示兩個句子愈相似
+
+#==output==
+0.94458246
+```
+
+
+
+
+
+
 

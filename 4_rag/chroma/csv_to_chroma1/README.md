@@ -204,6 +204,9 @@ result = charging_station.query(
     n_results=3
 )
 result['documents'][0][0]
+
+#==output==
+'城市車旅永康二站, 地址:臺北市大安區永康街13巷8號,充電樁數量:1槍'
 ```
 
 ```python

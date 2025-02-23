@@ -9,7 +9,7 @@
 ### [將向量資料儲儲存至Chroma_使用chroma_api](./chroma/add_data_chroma1.md)
 
 ## 實作
-### [將csv資料加入至Chroma]
+### [充電站(csv)](./chroma/csv_to_chroma1)
 
 
 

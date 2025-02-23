@@ -1,5 +1,5 @@
 # 將向量資料加入Chroma
-## 直接使用chroma的api建議採用**
+## 直接使用chroma的api**建議採用**
 - 缺點使用huggingface hub server(需要huggingface apikey)
 - 優點是自動embedding
 

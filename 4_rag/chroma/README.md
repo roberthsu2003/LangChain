@@ -1,4 +1,5 @@
 # Chroma向量資料庫
+
 - 開源的免費資料庫
 - 專門給LLM使用的資料庫
 - 可儲存在記憶體,本機,也可以在雲端
@@ -23,6 +24,12 @@ chroma_client = chromadb.Client()
 ```
 
 **3建立Collection**
+- collection名稱的限制
+	- 3~63個字元
+	- 起始和結束字元必需是小寫英文或數字字元,中間可以是`點`,`破折號`,`底線`
+	- 不可連續2個點
+	- 該名稱不能是有效的 IP 位址。
+
 
 ```python
 collection = chroma_client.create_collection(name="my_collection")

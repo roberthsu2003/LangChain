@@ -15,3 +15,6 @@ tavily-python
 ollama
 ipywidgets
 scikit-learn
+pandas
+python-dotenv
+geopy

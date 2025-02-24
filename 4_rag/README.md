@@ -11,5 +11,15 @@
 ## 實作
 ### [充電站(csv)](./chroma/csv_to_chroma1)
 
+### [大筆數csv資料(酒站)](./chroma/csv_to_chromb)
+
+### [台灣專利-(question-answer)]
+https://huggingface.co/datasets/Heng666/Taiwan-patent-qa
+
+### [台灣各大學提供科系-(question-answer)]
+https://huggingface.co/datasets/linsonfas/Further_education_information_in_Taiwan
+
+
+
 
 

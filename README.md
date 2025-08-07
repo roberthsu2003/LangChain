@@ -8,17 +8,19 @@
 
 ## 第0章 [何謂代理(agency workflow)](./何謂AIAgent)
 
-## 第1章 建立langchain開發環境
+## 第1章 [建立langchain開發環境](./建立langchain開發環境/README.md)
 
-## 第2章 聊天模型(Chat Models)
+## 第2章 [本地端模型_連結ollama](./0_連結ollama/README.md)
 
-## 第3章 提示樣版(Prompt Templates)
+## 第3章 聊天模型(Chat Models)
 
-## 第4章 連結Chains
+## 第4章 提示樣版(Prompt Templates)
 
-## 第5章 [RAG (Retrieval-Augmented Generation)](./4_rag)
+## 第5章 連結Chains
 
-## 第6章 Agents & Tools
+## 第6章 [RAG (Retrieval-Augmented Generation)](./4_rag)
+
+## 第7章 Agents & Tools
 
 > 參考資料[langchain-crash-course repo](https://github.com/bhancockio/langchain-crash-course)
 

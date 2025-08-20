@@ -26,6 +26,8 @@
 
 > 參考影片[langchain-crash-course](https://youtu.be/yF9kGESAi3M?si=yfU54HMUf9yrm0kW)
 
+## 第8章 [簡單應用範例](簡單範例)
+
 ###  LangChain官方文件  
 - https://docs.langchain.com  
 -  裡面有 “Getting Started”, “Use   Cases”, “Cookbook”, 等模組化教學。

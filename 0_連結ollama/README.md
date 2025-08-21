@@ -44,7 +44,7 @@ pip install ollama
 
 
 ### 使用ollama的api
-#### 應用程式和ollama都在本機端
+#### 方法1:應用程式和ollama都在本機端
 
 ```python
 #使用ollam的api
@@ -62,7 +62,7 @@ print(response.message.content)
 ```
 
 ### 使用ollama的api
-#### 應用程式在docker容器內,ollama在主機上
+#### 方法2:應用程式在docker容器內,ollama在主機上
 
 ```python
 from ollama import Client
@@ -81,7 +81,7 @@ response = client.chat(model='gpt-oss:20b', messages=[
 print(response['message']['content'])
 ```
 
-#### Ollama REST API
+#### 方法3:使用Ollama REST API
 
 [Ollama REST　API 官網說明](https://github.com/ollama/ollama/blob/main/docs/api.md)
 

@@ -1,10 +1,12 @@
-## 安裝olloma
+# Olloma
+
+## 安裝olloma(方法1):本機安裝olloma
 
 [官網安裝網址](https://ollama.com/)
 
 > [參考官網的命令列操作指令(CLI)](https://github.com/ollama/ollama/blob/main/README.md)
 
-## docker內安裝olloma
+## 安裝olloma(方法2):docker內安裝olloma
 
 [官網說明](https://hub.docker.com/r/ollama/ollama)
 
@@ -28,7 +30,11 @@ docker exec -it ollama ollama run llama3:3b
 	"runArgs": ["--network=host","--name","python_langchain"]
 ```
 
-## [ollama python API官方說明](https://github.com/ollama/ollama-python)
+---
+
+## Ollama python API
+
+### [ollama python API官方說明連結](https://github.com/ollama/ollama-python)
 
 ### 安裝api
 

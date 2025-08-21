@@ -48,7 +48,7 @@ ANTHROPIC_API_KEY=XXXXX
 ---
 
 ## 2_連結各家模型基本範例
-- [chat_model_basic.ipynb](./chat_model_basic.ipynb)
+- [1chat_model_basic.ipynb](./1chat_model_basic.ipynb)
 
 用途：示範如何使用多家提供者的 chat model（OpenAI / Anthropic / Google / ollama）來呼叫並取得回應。
 
@@ -63,7 +63,7 @@ ANTHROPIC_API_KEY=XXXXX
 
 ### google
 
-- [chat_model_basic.ipynb](./chat_model_basic.ipynb)
+- [1chat_model_basic.ipynb](./1chat_model_basic.ipynb)
 
 ```python
 #google
@@ -89,7 +89,7 @@ print(result.content)
 
 ### openAI
 
-- [chat_model_basic.ipynb](./chat_model_basic.ipynb)
+- [1chat_model_basic.ipynb](./1chat_model_basic.ipynb)
 
 ```python
 #openapi
@@ -115,7 +115,7 @@ print(result.content)
 
 ### anthropic api
 
-- [chat_model_basic.ipynb](./chat_model_basic.ipynb)
+- [1chat_model_basic.ipynb](./1chat_model_basic.ipynb)
 
 ```python
 #anthropic api
@@ -142,7 +142,7 @@ print(result.content)
 
 ### ollama
 
-- [chat_model_basic.ipynb](./chat_model_basic.ipynb)
+- [1chat_model_basic.ipynb](./1chat_model_basic.ipynb)
 
 ```python
 #ollama api

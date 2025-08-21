@@ -85,7 +85,7 @@ print(response['message']['content'])
 
 [Ollama REST　API 官網說明](https://github.com/ollama/ollama/blob/main/docs/api.md)
 
-> 官網說明較完整
+> 官網說明完整,建議依官網說明練習下面程式碼
 
 #### Generate Mode(生成模式)
 

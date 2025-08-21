@@ -12,7 +12,7 @@
 
 ## 第2章 [本地端模型_連結ollama](./0_連結ollama/README.md)
 
-## 第3章 聊天模型(Chat Models)
+## 第3章 [聊天模型(Chat Models)](./_chat_models)
 
 ## 第4章 提示樣版(Prompt Templates)
 

@@ -6,7 +6,7 @@
 - 1. [主要模型提供商的配置](#1_主要模型提供商的配置)
 - 2. [連結各家模型基本範例](#2_連結各家模型基本範例)
 - 2. 帶有 message objects 的對話範例
-  - [2chat_model_basic_conversation.py](#2-2_chat_model_basic_conversationpy)
+  - [2_chat_model_basic_conversation.py](#2-2_chat_model_basic_conversationpy)
   - [2_chat_model_basic_conversation_google.py](#2-2_chat_model_basic_conversation_googlepy)
   - [2_chat_model_basic_conversation_ollama.py](#2-2_chat_model_basic_conversation_ollamapy)
 - 3. 替代/比較範例

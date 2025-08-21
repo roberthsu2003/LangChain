@@ -3,11 +3,8 @@
 展示如何使用 LangChain 與不同廠商的 chat 模型（OpenAI、Google Gemini、Anthropic、Ollama 等）、建立對話歷史與將訊息儲存到 Firebase/Firestore。下方依檔名前綴數字分組（1 → 5）說明每個檔案內容。
 
 ## 目錄
-
-- 1. 基本範例
-  - [1_chat_model_basic.py](#1-1_chat_model_basicpy)
-  - [1_chat_model_basic_google.py](#1-1_chat_model_basic_googlepy)
-  - [1_chat_model_basic_ollama.py](#1-1_chat_model_basic_ollamapy)
+- 1. [主要模型提供商的配置](#1_主要模型提供商的配置)
+- 2. [連結各家模型基本範例](#2_連結各家模型基本範例)
 - 2. 帶有 message objects 的對話範例
   - [2_chat_model_basic_conversation.py](#2-2_chat_model_basic_conversationpy)
   - [2_chat_model_basic_conversation_google.py](#2-2_chat_model_basic_conversation_googlepy)
@@ -24,10 +21,36 @@
 
 ---
 
-## 1 — 基本範例
+## 1_主要模型提供商的配置
 
-### 1_chat_model_basic
-用途：示範如何使用多家提供者的 chat model（OpenAI / Anthropic / Google）來呼叫並取得回應。
+**套件安裝**
+
+```bash
+langchain-google-genai
+langchain-openai
+langchain-anthropic
+langchain-ollama
+```
+
+> 主要模型商申請API網址
+> 1. 試用-[Google AI Studio](./https://aistudio.google.com/)
+> 2. 需付費-[OpenAI Platform](https://platform.openai.com/docs/overview)->點選右上角設定後,選取左邊欄位APIkey
+> 3. 需付費-[Anthropic console](https://console.anthropic.com/dashboard)->點選左邊的API keys
+		
+**env**
+
+```bash
+GOOGLE_API_KEY=XXXXXXXXX
+OPENAI_API_KEY=XXXXXXX
+ANTHROPIC_API_KEY=XXXXX
+```
+
+---
+
+## 2_連結各家模型基本範例
+- [chat_model_basic.ipynb](./chat_model_basic.ipynb)
+
+用途：示範如何使用多家提供者的 chat model（OpenAI / Anthropic / Google / ollama）來呼叫並取得回應。
 
 重點：
 - 以 `langchain_openai.ChatOpenAI`、`ChatAnthropic`、`ChatGoogleGenerativeAI` 等建立模型。
@@ -38,33 +61,104 @@
 
 執行要點：載入 `.env` 後，用適當的環境變數（API key / project config）呼叫 `model.invoke(messages)`。
 
----
+### google
 
-### 1_chat_model_basic_google.py
-用途：示範使用 Google Gemini（透過 `langchain_google_genai.ChatGoogleGenerativeAI`）來呼叫並印出回應內容。
+```python
+#google
+# Chat Model Documents:https://python.langchain.com/docs/integrations/chat/
+# Google Chat Model Documents: https://python.langchain.com/docs/integrations/chat/google_generative_ai/
 
-重點：
-- 使用 `load_dotenv()` 讀取環境變數。
-- 建立 `ChatGoogleGenerativeAI(model="gemini-1.5-pro" 或 "gemini-1.5-flash")`。
-- 使用 `model.invoke()` 傳入字串或 messages，並印出 `result.content`。
+from dotenv import load_dotenv
+from langchain_google_genai import ChatGoogleGenerativeAI
 
-依賴：`python-dotenv`、`langchain_google_genai`。
+# Load environment variables from .env
+load_dotenv()
 
-執行要點：需設定 Google 的授權/環境（通常透過憑證或環境變數），並指定合理的 model 名稱。
+# Create a ChatGoogleGenerativeAI model
+model = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
----
+# Invoke the model with a message
+result = model.invoke("81除以9的答案是?")
+print("所有答案")
+print(result)
+print("回答內容是")
+print(result.content)
+```
 
-### 1_chat_model_basic_ollama.py
-用途：示範使用 Ollama LLM 呼叫（`langchain_ollama.llms.OllamaLLM`）。
+### openAI
 
-重點：
-- 建立 `OllamaLLM(model="llama3.2:3b")`。
-- 可直接 `model.invoke(prompt_or_messages)` 並印出回應。
+```python
+#openapi
+# Chat Model Documents:https://python.langchain.com/docs/integrations/chat/
+# Google Chat Model Documents:https://python.langchain.com/docs/integrations/chat/openai/ 
 
-依賴：`langchain_ollama`。
+from dotenv import load_dotenv
+from langchain_openai import ChatOpenAI
 
-執行要點：需在本機或網路可訪問的 Ollama server 上有對應 model，可直接呼叫 `invoke`。
+# Load environment variables from .env
+load_dotenv()
 
+# Create a ChatOpenAI model
+model = ChatOpenAI(model="gpt-5-mini")
+
+# Invoke the model with a message
+result = model.invoke("81除以9的答案是?")
+print("所有答案")
+print(result)
+print("回答內容是")
+print(result.content)
+```
+
+### anthropic api
+
+```python
+#anthropic api
+# Chat Model Documents:https://python.langchain.com/docs/integrations/chat/
+# Google Chat Model Documents:https://python.langchain.com/docs/integrations/chat/anthropic/ 
+
+from dotenv import load_dotenv
+from langchain_anthropic import ChatAnthropic
+
+# Load environment variables from .env
+load_dotenv()
+
+# Create a ChatAnthropic model
+model = ChatAnthropic(model="claude-3-5-sonnet-latest")
+
+
+# Invoke the model with a message
+result = model.invoke("81除以9的答案是?")
+print("所有答案")
+print(result)
+print("回答內容是")
+print(result.content)
+```
+
+### ollama
+
+```python
+#ollama api
+# Chat Model Documents:https://python.langchain.com/docs/integrations/chat/
+# Google Chat Model Documents:https://python.langchain.com/docs/integrations/chat/ollama/
+
+
+from langchain_ollama import ChatOllama
+
+
+# Create a ChatOllama model
+# 透過網址的方式連結ollama (指定 base_url 指向 Ollama server)
+# 預設 Ollama server 在本機的 11434 埠，若在其他主機或埠請改成相對應的網址
+
+model = ChatOllama(model="llama3.2:latest", base_url="http://host.docker.internal:11434")
+
+
+# Invoke the model with a message
+result = model.invoke("81除以9的答案是?")
+print("所有答案")
+print(result)
+print("回答內容是")
+print(result.content)
+```
 ---
 
 ## 2 — 帶有 message objects 的對話範例

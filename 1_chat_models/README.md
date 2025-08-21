@@ -26,7 +26,7 @@
 
 ## 1 — 基本範例
 
-### 1_chat_model_basic.py
+### 1_chat_model_basic
 用途：示範如何使用多家提供者的 chat model（OpenAI / Anthropic / Google）來呼叫並取得回應。
 
 重點：

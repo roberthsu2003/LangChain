@@ -3,6 +3,8 @@ langchain
 langchain-community
 langchain-core
 langchain-google-genai
+langchain-openai
+langchain-anthropic
 langchain-ollama
 chromadb
 tiktoken

@@ -1,5 +1,5 @@
-# Chat Model Documents: https://python.langchain.com/v0.2/docs/integrations/chat/
-# OpenAI Chat Model Documents: https://python.langchain.com/v0.2/docs/integrations/chat/openai/
+# Chat Model Documents:https://python.langchain.com/docs/integrations/chat/
+# Google Chat Model Documents: https://python.langchain.com/docs/integrations/chat/google_generative_ai/
 
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -7,8 +7,8 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 # Load environment variables from .env
 load_dotenv()
 
-# Create a ChatOpenAI model
-model = ChatGoogleGenerativeAI(model="gemini-1.5-pro")
+# Create a ChatGoogleGenerativeAI model
+model = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
 # Invoke the model with a message
 result = model.invoke("81除以9的答案是?")

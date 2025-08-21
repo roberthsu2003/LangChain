@@ -14,27 +14,7 @@
 
 ## 第3章 [聊天模型(Chat Models)](./1_chat_models)
 
-**套件安裝**
-
-```bash
-langchain-google-genai
-langchain-openai
-langchain-anthropic
-langchain-ollama
-```
-
-> 主要模型商申請API網址
-> 1. 試用-[Google AI Studio](./https://aistudio.google.com/)
-> 2. 需付費-[OpenAI Platform](https://platform.openai.com/docs/overview)->點選右上角設定後,選取左邊欄位APIkey
-> 3. 需付費-[Anthropic console](https://console.anthropic.com/dashboard)->點選左邊的API keys
-		
-**env**
-
-```bash
-GOOGLE_API_KEY=XXXXXXXXX
-OPENAI_API_KEY=XXXXXXX
-ANTHROPIC_API_KEY=XXXXX
-```
+> 包含各家模型api的申請,安裝,連結
 
 ## 第4章 提示樣版(Prompt Templates)
 

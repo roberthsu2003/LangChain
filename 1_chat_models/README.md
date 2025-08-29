@@ -5,7 +5,7 @@
 ## 目錄
 1. [主要模型提供商的配置](#1_主要模型提供商的配置)
 2. [連結各家模型基本範例](#2_連結各家模型基本範例)
-3. [帶有 message objects 的對話範例](#2帶有-message-objects 的對話範例)
+3. [帶有 message objects 的對話範例](#2帶有message-objects的對話範例)
 4. 替代/比較範例
 5. 與使用者互動的對話範例（含 chat loop）
 6. 儲存訊息歷史到 Firebase/Firestore
@@ -203,7 +203,7 @@ if __name__ == "__main__":
 ![](./images/pic1.png)
 ---
 
-## 2帶有 message objects 的對話範例
+## 2帶有message objects的對話範例
 
 ### 2_chat_model_basic_conversation.py
 用途：展示如何使用 `langchain_openai.ChatOpenAI`（或其他 provider）搭配 `langchain_core.messages` 中的 `SystemMessage` / `HumanMessage` / `AIMessage` 來構造 messages 列表並呼叫模型。

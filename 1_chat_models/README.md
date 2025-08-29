@@ -7,7 +7,7 @@
 2. [連結各家模型基本範例](#2_連結各家模型基本範例)
 3. [帶有 message objects 的對話範例](#2帶有message-objects的對話範例)
 4. [替代_比較範例](#3替代_比較範例)
-5. 與使用者互動的對話範例（含 chat loop）
+5. [與使用者互動的對話範例（含 chat loop）](#4與使用者互動的對話範例)
 6. 儲存訊息歷史到 Firebase/Firestore
 
 
@@ -251,7 +251,7 @@ if __name__ == "__main__":
 
 ---
 
-## 4 — 與使用者互動的對話範例
+## 4與使用者互動的對話範例
 
 ### 4_chat_model_conversation_with_user.py
 用途：示範一個簡單的 chat loop（互動式），持續保存 `chat_history`（list），並將其作為上下文傳給模型取得回覆。

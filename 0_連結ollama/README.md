@@ -259,19 +259,39 @@ chat_loop()
 
 ### 使用langchain api呼叫ollama
 
+- lesson3.ipynb
+
 ```
+# 使用 langchain api 呼叫 ollama，並直接輸出 markdown 格式的答案
+
+from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_ollama.llms import OllamaLLM
-template = """Question: {question}
+from IPython.display import display, Markdown
 
-Answer: Let's think step by step."""
+# 定義提示模板
+template = """問題:{question}
+輸出格式:請使用markdown語法回答
+輸出語言:繁體中文(正體中文)
+"""
 
+# 建立 langchain chain
 prompt = ChatPromptTemplate.from_template(template)
+llm = OllamaLLM(model="llama3.2:latest")
 
-model = OllamaLLM(model="llama3.2:3b")
+#在 Python 中，| 原本是位元運算的 OR，但在這裡是 LangChain 特別實作的「管道運算子」，用來串接多個物件（如 prompt 和 llm），讓資料流程自動傳遞。
+chain = prompt | llm 
 
-chain = prompt | model
 
-chain.invoke({"question": "What is LangChain?"})
+
+# 直接輸入問題並顯示 markdown 格式答案
+question = "天空為什麼是藍色的？"  # 你可以修改這裡的問題
+
+result = chain.invoke({"question": question})
+
+# 若回傳為字典，取 'content' 欄位
+if isinstance(result, dict) and 'content' in result:
+    display(Markdown(result['content']))
+else:
+    display(Markdown(str(result)))
 ```
 

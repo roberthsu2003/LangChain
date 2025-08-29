@@ -1,4 +1,5 @@
 python-dotenv
+ollama
 langchain
 langchain-community
 langchain-core
@@ -6,17 +7,6 @@ langchain-google-genai
 langchain-openai
 langchain-anthropic
 langchain-ollama
-chromadb
-tiktoken
-sentence-transformers
-bs4
-firecrawl-py
 langchainhub
-wikipedia
-tavily-python
-ollama
 ipywidgets
-scikit-learn
-pandas
-python-dotenv
-geopy
+requests

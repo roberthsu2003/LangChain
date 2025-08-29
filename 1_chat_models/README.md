@@ -248,23 +248,8 @@ LangChain 與 LLM模型的聊天模型進行對話,展示如何建立包含系�
 
 [**對話管理的實用性_輸出結果**](./對話管理的實用性_輸出結果.md)
 
-
-
 ---
 
-### 2_chat_model_basic_conversation_google.py
-用途：類似 `2_chat_model_basic_conversation.py`，但示範使用 Google 的 `ChatGoogleGenerativeAI` 來以 messages 陣列提供上下文並取得回覆。
-
-重點與執行：同上，需額外注意 Google 模型名稱與授權設定。
-
----
-
-### 2_chat_model_basic_conversation_ollama.py
-用途：同樣是 messages-based 的示範，但用 `OllamaLLM` 來示範多輪對話的傳遞方式。
-
-重點：Ollama 的 `invoke` 可接受 messages 陣列（或 prompt），回傳可直接印出或放入後續 context。
-
----
 
 ## 3替代_比較範例
 
@@ -330,13 +315,4 @@ LangChain 與 LLM模型的聊天模型進行對話,展示如何建立包含系�
 
 ---
 
-## 常見注意事項與執行前準備
 
-- 請先安裝專案根目錄的 `requirements.txt` 中相依套件，或依每個範例自行安裝需要的 provider wrapper（例如 `langchain_google_genai`、`langchain_ollama`、`langchain_anthropic` 等）。
-- 多數範例使用 `python-dotenv`（`load_dotenv()`），請建立 `.env` 並放入 API keys、Google credentials path 等必要環境變數。
-- Google/Firestore 範例需額外設定 GCP 認證（ADC 或 service account JSON）。
-- Ollama 範例需在可用的 Ollama 環境中執行並確保 model 已載入。
-
-## 完成情況
-
-- 依據資料夾內的所有 `*.py` 檔案，已在本檔案中依數字前綴（1→5）逐一說明。若要我把每個範例的重點程式片段整理成單獨小節或加入執行指令範例（含 .env 範本），我可以接著新增。

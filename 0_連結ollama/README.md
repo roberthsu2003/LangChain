@@ -261,7 +261,7 @@ chat_loop()
 
 - lesson3.ipynb
 
-```
+```python
 # 使用 langchain api 呼叫 ollama，並直接輸出 markdown 格式的答案
 
 from langchain_ollama import OllamaLLM

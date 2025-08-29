@@ -8,9 +8,7 @@
 3. [帶有 message objects 的對話範例](#2帶有message-objects的對話範例)
 4. [替代_比較範例](#3替代_比較範例)
 5. [與使用者互動的對話範例（含 chat loop）](#4與使用者互動的對話範例)
-6. 儲存訊息歷史到 Firebase/Firestore
-
-
+6. [儲存訊息歷史到 Firebase/Firestore](#5儲存訊息歷史到Firebase_Firestore)
 ---
 
 ## 1_主要模型提供商的配置
@@ -281,7 +279,7 @@ if __name__ == "__main__":
 
 ---
 
-## 5 — 儲存訊息歷史到 Firebase/Firestore
+## 5儲存訊息歷史到Firebase_Firestore
 
 ### 5_chat_model_save_message_history_firebase.py
 用途：示範如何把對話歷史儲存到 Google Firestore（Firebase），使用 `langchain_google_firestore.FirestoreChatMessageHistory`。

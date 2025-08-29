@@ -10,3 +10,4 @@ langchain-ollama
 langchainhub
 ipywidgets
 requests
+gradio

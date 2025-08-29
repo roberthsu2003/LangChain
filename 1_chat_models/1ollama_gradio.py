@@ -5,7 +5,7 @@ import os
 
 # 載入環境變數（可用 OLLAMA_URL / OLLAMA_MODEL 覆蓋預設）
 load_dotenv()
-OLLAMA_URL = os.getenv("OLLAMA_URL", "http://host.docker.internal:11434")
+OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")
 MODEL_NAME = os.getenv("OLLAMA_MODEL", "llama3.2:latest")
 
 # 使用最原始的呼叫方式：直接以字串 prompt 送到 Ollama

@@ -3,21 +3,13 @@
 展示如何使用 LangChain 與不同廠商的 chat 模型（OpenAI、Google Gemini、Anthropic、Ollama 等）、建立對話歷史與將訊息儲存到 Firebase/Firestore。下方依檔名前綴數字分組（1 → 5）說明每個檔案內容。
 
 ## 目錄
-- 1. [主要模型提供商的配置](#1_主要模型提供商的配置)
-- 2. [連結各家模型基本範例](#2_連結各家模型基本範例)
-- 2. 帶有 message objects 的對話範例
-  - [2_chat_model_basic_conversation.py](#2-2_chat_model_basic_conversationpy)
-  - [2_chat_model_basic_conversation_google.py](#2-2_chat_model_basic_conversation_googlepy)
-  - [2_chat_model_basic_conversation_ollama.py](#2-2_chat_model_basic_conversation_ollamapy)
-- 3. 替代/比較範例
-  - [3_chat_model_alternatives.py](#3-3_chat_model_alternativespy)
-  - [3_chat_model_alternatives1.py](#3-3_chat_model_alternatives1py)
-- 4. 與使用者互動的對話範例（含 chat loop）
-  - [4_chat_model_conversation_with_user.py](#4-4_chat_model_conversation_with_userpy)
-  - [4_chat_model_conversation_with_user_google.py](#4-4_chat_model_conversation_with_user_googlepy)
-  - [4_chat_model_conversation_with_user_ollama.py](#4-4_chat_model_conversation_with_user_ollamapy)
-- 5. 儲存訊息歷史到 Firebase/Firestore
-  - [5_chat_model_save_message_history_firebase.py](#5-5_chat_model_save_message_history_firebasepy)
+1. [主要模型提供商的配置](#1_主要模型提供商的配置)
+2. [連結各家模型基本範例](#2_連結各家模型基本範例)
+3. [帶有 message objects 的對話範例](#2帶有-message-objects 的對話範例)
+4. 替代/比較範例
+5. 與使用者互動的對話範例（含 chat loop）
+6. 儲存訊息歷史到 Firebase/Firestore
+
 
 ---
 
@@ -211,7 +203,7 @@ if __name__ == "__main__":
 ![](./images/pic1.png)
 ---
 
-## 2 — 帶有 message objects 的對話範例
+## 2帶有 message objects 的對話範例
 
 ### 2_chat_model_basic_conversation.py
 用途：展示如何使用 `langchain_openai.ChatOpenAI`（或其他 provider）搭配 `langchain_core.messages` 中的 `SystemMessage` / `HumanMessage` / `AIMessage` 來構造 messages 列表並呼叫模型。

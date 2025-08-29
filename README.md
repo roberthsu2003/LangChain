@@ -26,7 +26,7 @@
 
 ## 第7章 [RAG (Retrieval-Augmented Generation)](./4_rag)
 
-## 第8章 [Agents & Tools](./5_agents_andtools)
+## 第8章 [Agents & Tools](./5_agents_and_tools)
 
 ## 第9章 [簡單應用範例](簡單範例)
 

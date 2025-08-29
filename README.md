@@ -10,25 +10,29 @@
 
 ## 第1章 [建立langchain開發環境](./建立langchain開發環境/README.md)
 
-## 第2章 [本地端模型_連結ollama](./0_連結ollama/README.md)
+## 第2章 Gradio介面使用
 
-## 第3章 [聊天模型(Chat Models)](./1_chat_models)
+[https://github.com/roberthsu2003/gradio](https://github.com/roberthsu2003/gradio)
+
+## 第3章 [本地端模型_連結ollama](./0_連結ollama/README.md)
+
+## 第4章 [聊天模型(Chat Models)](./1_chat_models)
 
 > 包含各家模型api的申請,安裝,連結
 
-## 第4章 提示樣版(Prompt Templates)
+## 第5章 提示樣版(Prompt Templates)
 
-## 第5章 連結Chains
+## 第6章 連結Chains
 
-## 第6章 [RAG (Retrieval-Augmented Generation)](./4_rag)
+## 第7章 [RAG (Retrieval-Augmented Generation)](./4_rag)
 
-## 第7章 Agents & Tools
+## 第8章 Agents & Tools
 
 > 參考資料[langchain-crash-course repo](https://github.com/bhancockio/langchain-crash-course)
 
 > 參考影片[langchain-crash-course](https://youtu.be/yF9kGESAi3M?si=yfU54HMUf9yrm0kW)
 
-## 第8章 [簡單應用範例](簡單範例)
+## 第9章 [簡單應用範例](簡單範例)
 
 ###  LangChain官方文件  
 - https://docs.langchain.com  

@@ -20,20 +20,21 @@
 
 > 包含各家模型api的申請,安裝,連結
 
-## 第5章 提示樣版(Prompt Templates)
+## 第5章 [提示樣版(Prompt Templates)](./2_prompt_templates/)
 
-## 第6章 連結Chains
+## 第6章 [連結Chains](./3_chains/)
 
 ## 第7章 [RAG (Retrieval-Augmented Generation)](./4_rag)
 
-## 第8章 Agents & Tools
+## 第8章 [Agents & Tools](./5_agents_tools)
+
+## 第9章 [簡單應用範例](簡單範例)
+
+## 第10章 [待規劃](./待規劃)
 
 > 參考資料[langchain-crash-course repo](https://github.com/bhancockio/langchain-crash-course)
 
 > 參考影片[langchain-crash-course](https://youtu.be/yF9kGESAi3M?si=yfU54HMUf9yrm0kW)
 
-## 第9章 [簡單應用範例](簡單範例)
-
-## 第10章 [待規劃](./待規劃)
 
 

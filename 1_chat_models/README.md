@@ -5,7 +5,7 @@
 ## 目錄
 1. [主要模型提供商的配置](#1_主要模型提供商的配置)
 2. [連結各家模型基本範例](#2_連結各家模型基本範例)
-3. [帶有 message objects 的對話範例](#2帶有message-objects的對話範例)
+3. [對話管理範例](#2對話管理範例)
 4. [替代_比較範例](#3替代_比較範例)
 5. [與使用者互動的對話範例（含 chat loop）](#4與使用者互動的對話範例)
 6. [儲存訊息歷史到 Firebase/Firestore](#5儲存訊息歷史到Firebase_Firestore)
@@ -201,19 +201,34 @@ if __name__ == "__main__":
 ![](./images/pic1.png)
 ---
 
-## 2帶有message objects的對話範例
+## 2對話管理範例
 
-### 2_chat_model_basic_conversation.py
-用途：展示如何使用 `langchain_openai.ChatOpenAI`（或其他 provider）搭配 `langchain_core.messages` 中的 `SystemMessage` / `HumanMessage` / `AIMessage` 來構造 messages 列表並呼叫模型。
+LangChain 與 LLM模型的聊天模型進行對話,展示如何建立包含系統訊息、人類訊息和 AI 訊息的對話
 
-重點：
-- 以 messages 陣列表示完整對話上下文。
-- 範例包含系統提示與多輪對話（human、ai、human），示範模型利用上下文回答後續問題。
+### 對話管理的好處：
 
-依賴：`python-dotenv`、`langchain_openai`、`langchain_core`。
+1. 🧠 上下文理解：AI 能夠理解對話的上下文
+2. 🔄 連續性：對話保持連貫，不會斷層
+3. 🎯 準確性：AI 的回答更準確，因為有完整背景
+4. 💡 個性化：可以記住用戶的偏好和之前的互動
+5. 🚀 效率：用戶不需要重複解釋相同的概念
 
-執行要點：示範多家 provider 的呼叫方式（OpenAI / Google / Anthropic 範例皆有）。
+### 技術實現:
 
+- 使用 messages 列表保存對話歷史
+- 每次對話都將新的訊息加入列表
+- AI 模型能夠看到完整的對話脈絡
+
+### 實際應用場景
+
+- 客服聊天機器人
+- 教育輔助系統
+- 個人助理應用
+- 任何需要連續對話的 AI 系統
+
+### 簡單的對話管理
+
+範例檔:簡單的對話管理(./2.簡單的對話管理.ipynb)
 ---
 
 ### 2_chat_model_basic_conversation_google.py

@@ -230,17 +230,17 @@ LangChain 與 LLM模型的聊天模型進行對話,展示如何建立包含系�
 
 ### 簡單的對話管理
 
-- 使用model:”gpt-4o”
+範例檔:[簡單的對話管理_gpt-4o](./2.簡單的對話管理_gpt-4o.ipynb)
 
-範例檔:[簡單的對話管理](./2.簡單的對話管理.ipynb)
+範例檔:[簡單的對話管理_gemini](./2.簡單的對話管理_gemini.ipynb)
 
 ---
 
 ### 了解對話管理的實用性
 
-- 使用model:”gpt-4o”
+範例檔:[對話管理的實用性_gpt-4o](./2.對話管理的實用性_gpt-4o.py)
 
-範例檔:[對話管理的實用性](./2.對話管理的實用性.py)
+範例檔:**[對話管理的實用性_gemini](./2.對話管理的實用性_gemini.py)**
 
 ### 2_chat_model_basic_conversation_google.py
 用途：類似 `2_chat_model_basic_conversation.py`，但示範使用 Google 的 `ChatGoogleGenerativeAI` 來以 messages 陣列提供上下文並取得回覆。

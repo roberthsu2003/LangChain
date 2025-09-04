@@ -37,7 +37,7 @@ print(f"Answer from Anthropic: {result.content}")
 
 # https://console.cloud.google.com/gen-app-builder/engines
 # https://ai.google.dev/gemini-api/docs/models/gemini
-model = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+model = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
 result = model.invoke(messages)
 print(f"Answer from Google: {result.content}")

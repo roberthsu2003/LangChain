@@ -20,7 +20,7 @@
 
 **conda基本設定和基本指令**
 
-[https://github.com/roberthsu2003/python/tree/master/mini_conda](./https://github.com/roberthsu2003/python/tree/master/mini_conda)
+[https://github.com/roberthsu2003/python/tree/master/mini_conda](https://github.com/roberthsu2003/python/tree/master/mini_conda)
 
 ### 步驟5. 連線Github和clone專案
 

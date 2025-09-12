@@ -1,6 +1,6 @@
 # Chat Models — 範例與說明
 
-展示如何使用 LangChain 與不同廠商的 chat 模型（OpenAI、Google Gemini、Anthropic、Ollama 等）、建立對話歷史與將訊息儲存到 Firebase/Firestore。下方依檔名前綴數字分組（1 → 5）說明每個檔案內容。
+使用 LangChain 與不同廠商的 chat 模型（OpenAI、Google Gemini、Anthropic、Ollama 等）、建立對話歷史與將訊息儲存到 Firebase/Firestore。
 
 ## 目錄
 1. [主要模型提供商的配置](#1_主要模型提供商的配置)

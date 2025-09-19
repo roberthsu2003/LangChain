@@ -279,19 +279,40 @@ LangChain 與 LLM模型的聊天模型進行對話,展示如何建立包含系�
 ---
 
 
-## 5儲存訊息歷史到Firebase_Firestore
+## 5儲存歷史訊息至Firebase_Firestore
 
-### 5_chat_model_save_message_history_firebase.py
-用途：示範如何把對話歷史儲存到 Google Firestore（Firebase），使用 `langchain_google_firestore.FirestoreChatMessageHistory`。
+### 申請Firestore步驟
+1. 建立一個 Firebase 帳號
+2. 建立一個新的 Firebase 專案
+    - 複製專案 ID
+3. 在 Firebase 專案中建立 Firestore 資料庫
+4. 在電腦上安裝 Google Cloud CLI
+    - https://cloud.google.com/sdk/docs/install
+    - mac可以使用homebrew安裝
+        - brew install google-cloud-cli
+    - windows可以使用chocolatey安裝
+        - choco install google-cloud-sdk
+        
+    - 使用 Google Cloud CLI 認證您的 Google 帳號(這叫ADC認證)
+        - https://cloud.google.com/docs/authentication/provide-credentials-adc#local-dev
+        - 使用指令`gcloud auth application-default login`認證
 
-重點：
-- 範例展示 Firestore client 初始化、建立 `FirestoreChatMessageHistory(session_id, collection, client)`，並示範如何 `add_user_message` / `add_ai_message`。
-- 範例中包含步驟說明（建立 Firebase 專案、啟用 Firestore、設定 Google Cloud CLI 與認證等）。
+    - 設定您的預設專案為新建立的 Firebase 專案
+        - 使用指令`gcloud config set project <project_id>`設定預設專案
+    
+5. 在 Google Cloud Console 中啟用 Firestore API：
+    - https://console.cloud.google.com/apis/enableflow?apiid=firestore.googleapis.com&project=crewai-automation
 
-依賴：`python-dotenv`、`google-cloud-firestore`、`langchain_google_firestore`、`langchain_openai`（或其他 chat provider）。
+		- 有設firestore database內的規則就可以了
 
-執行要點：請先在 Google Cloud Console 設定好專案與認證，並在本機設定 ADC 或 service account，否則無法初始化 `firestore.Client`。
+### 需要安裝的套件
 
----
+```
+pip install google-cloud-firestore
+pip install langchain-google-firestore
+```
+
+### 範例檔:[儲存歷史訊息至Firebase_Firestore](./5.儲存歷史訊息至Firebase_Firestore.ipynb)
+
 
 

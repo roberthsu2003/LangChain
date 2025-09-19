@@ -251,7 +251,7 @@ LangChain 與 LLM模型的聊天模型進行對話,展示如何建立包含系�
 ---
 
 
-## 3替代_比較範例
+## 3多模型回應範例
 
 ### 3_chat_model_alternatives.py
 用途：比較不同提供者的結果或示範如何在程式中替換模型（OpenAI、Google、Ollama 等）。

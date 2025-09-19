@@ -8,7 +8,11 @@ LangChain 的 **Prompt Template (提示模板)** 主要目的有三個：
 
 -----
 
-## Prompt Template 完整範例：專業翻譯工具:[沒有配合模型版本](./1.完整範例_無配合模型.ipynb)
+## 範例1:Prompt Template 完整範例：專業翻譯工具:[沒有配合模型版本](./1.完整範例_無配合模型.ipynb)
+
+## 範例2:Prompt Template 完整範例：專業翻譯工具:[配合ollama模型版本](./2.完整範例_配合olloma.ipynb)
+
+## 範例3:Prompt Template 完整範例：專業翻譯工具:[配合gemini模型版本](./3.完整範例_配合gemini.ipynb)
 
 
 ### 1\. 結構化與標準化提示 (Prompt Engineering)

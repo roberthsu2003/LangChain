@@ -18,9 +18,17 @@
 
 ## 第4章 [聊天模型(Chat Models)](./1_chat_models)
 
+**目的**:在於透過AI模型產生文字回應，以達到與使用者互動的目的。
+
 > 包含各家模型api的申請,安裝,連結
 
 ## 第5章 [提示樣版(Prompt Templates)](./2_prompt_templates/)
+
+**目的**:
+
+1. 結構化與標準化提示 (Prompt Engineering)
+2. 動態插入使用者輸入
+3. 提升重複使用性與管理效率
 
 ## 第6章 [連結Chains](./3_chains/)
 

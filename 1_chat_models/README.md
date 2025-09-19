@@ -263,10 +263,11 @@ LangChain 與 LLM模型的聊天模型進行對話,展示如何建立包含系�
 ## 4記憶使用者對話內容範例
 
 ### 範例檔:[4.記憶對話記錄_ollama](./4.記憶對話記錄_ollama.ipynb)
+### 範例檔:[4.記憶對話記錄_gemini](./4.記憶對話記錄_gemini.ipynb)
 
 用途：示範一個簡單的 chat loop（互動式），持續保存 `chat_history`（list），並將其作為上下文傳給模型取得回覆。
 
-重點：
+重點：**‌**
 - 使用 `SystemMessage` 作為初始提示（例如：你是一個樂於助人的 AI 助手。）。
 - 以 while 迴圈讀取使用者輸入，送出 `chat_history` 呼叫 `model.invoke(chat_history)`，再把回覆加入 history。
 - 範例包含停止條件（使用者輸入 `exit` 結束）。

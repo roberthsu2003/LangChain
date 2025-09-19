@@ -312,7 +312,7 @@ pip install google-cloud-firestore
 pip install langchain-google-firestore
 ```
 
-### 範例檔:[儲存歷史訊息至Firebase_Firestore](./5.儲存歷史訊息至Firebase_Firestore.ipynb)
+### 範例檔:[5儲存歷史訊息至Firebase_Firestore](./5.儲存歷史訊息至Firebase_Firestore.ipynb)
 
 
 

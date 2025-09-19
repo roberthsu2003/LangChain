@@ -13,6 +13,229 @@
 
 `Chain` 就是用來實現這種「多步驟工作流程」的核心元件。
 
+## 🎯 五種 Chain 類型的用途與使用時機
+
+### 1. 基礎鏈 (Basic Chains) - 入門必學
+**用途**: 建立最基本的 AI 處理流程
+**目的**: 學習 LCEL 語法和基本的鏈組合方式
+**使用時機**: 
+- 初學者學習 LangChain
+- 簡單的問答系統
+- 基本的文本生成任務
+
+**簡單範例**:
+```python
+# 基本的三步驟鏈
+chain = prompt_template | model | StrOutputParser()
+result = chain.invoke({"topic": "人工智慧"})
+```
+
+**範例檔案**:
+- [基礎鏈 - Ollama 版本](1_chains_basics_ollama.ipynb)
+- [基礎鏈 - Gemini 版本](1_chains_basics_gemini.ipynb)
+
+---
+
+### 2. 鏈的內部運作 (Chains Under the Hood) - 深入理解
+**用途**: 了解鏈的底層實作機制
+**目的**: 掌握 RunnableSequence 和 RunnableLambda 的使用
+**使用時機**:
+- 需要精細控制每個處理步驟
+- 除錯和優化鏈的效能
+- 學習 LangChain 的內部架構
+
+**簡單範例**:
+```python
+# 手動組合鏈的各個步驟
+chain = RunnableSequence(
+    first=format_prompt,
+    middle=[invoke_model],
+    last=parse_output
+)
+```
+
+**範例檔案**:
+- [鏈的內部運作 - Ollama 版本](2_chains_under_the_hood_ollama.ipynb)
+- [鏈的內部運作 - Gemini 版本](2_chains_under_the_hood_gemini.ipynb)
+
+---
+
+### 3. 擴展鏈 (Extended Chains) - 自定義處理
+**用途**: 在鏈中加入自定義的處理邏輯
+**目的**: 實現複雜的後處理和數據轉換
+**使用時機**:
+- 需要對 LLM 輸出進行額外處理
+- 數據清理和格式化
+- 添加統計資訊或分析
+
+**簡單範例**:
+```python
+# 添加自定義處理步驟
+chain = (
+    prompt_template 
+    | model 
+    | StrOutputParser() 
+    | RunnableLambda(lambda x: x.upper())  # 轉大寫
+    | RunnableLambda(lambda x: f"字數: {len(x.split())}\n{x}")  # 添加字數統計
+)
+```
+
+**範例檔案**:
+- [擴展鏈 - Ollama 版本](3_chains_extended_ollama.ipynb)
+- [擴展鏈 - Gemini 版本](3_chains_extended_gemini.ipynb)
+
+---
+
+### 4. 並行鏈 (Parallel Chains) - 效率優化
+**用途**: 同時執行多個分析任務
+**目的**: 提升處理效率，充分利用系統資源
+**使用時機**:
+- 需要多角度分析同一份資料
+- 產品評論的優缺點分析
+- 多個獨立的處理任務
+
+**簡單範例**:
+```python
+# 並行執行多個分析
+chain = (
+    prompt_template
+    | model
+    | StrOutputParser()
+    | RunnableParallel(
+        branches={
+            "pros": pros_analysis_chain,
+            "cons": cons_analysis_chain
+        }
+    )
+)
+```
+
+**範例檔案**:
+- [並行鏈 - Ollama 版本](4_chains_parallel_ollama.ipynb)
+- [並行鏈 - Gemini 版本](4_chains_parallel_gemini.ipynb)
+
+---
+
+### 5. 分支鏈 (Branching Chains) - 智能路由
+**用途**: 根據條件選擇不同的處理路徑
+**目的**: 實現智能的條件判斷和路由
+**使用時機**:
+- 客戶服務自動化
+- 內容分類處理
+- 智能客服系統
+- 多條件決策系統
+
+**簡單範例**:
+```python
+# 根據回饋類型選擇處理方式
+branches = RunnableBranch(
+    (lambda x: "正面" in x, positive_response_chain),
+    (lambda x: "負面" in x, negative_response_chain),
+    neutral_response_chain  # 預設分支
+)
+```
+
+**範例檔案**:
+- [分支鏈 - Ollama 版本](5_chains_branching_ollama.ipynb)
+- [分支鏈 - Gemini 版本](5_chains_branching_gemini.ipynb)
+
+---
+
+## 🚀 學習路徑建議
+
+### 初學者路徑
+1. **基礎鏈** → 學習基本的 LCEL 語法
+2. **擴展鏈** → 添加自定義處理邏輯
+3. **並行鏈** → 提升處理效率
+4. **分支鏈** → 實現智能路由
+5. **內部運作** → 深入理解底層機制
+
+### 進階開發者路徑
+1. **內部運作** → 理解底層實作
+2. **並行鏈** → 優化效能
+3. **分支鏈** → 實現複雜邏輯
+4. **擴展鏈** → 自定義功能
+5. **基礎鏈** → 回顧最佳實踐
+
+## 💡 實際應用場景
+
+### 電商平台
+- **基礎鏈**: 商品描述生成
+- **擴展鏈**: 添加價格分析和庫存資訊
+- **並行鏈**: 同時分析多個商品的優缺點
+- **分支鏈**: 根據客戶評價自動分類處理
+
+### 客服系統
+- **基礎鏈**: 回答常見問題
+- **分支鏈**: 根據問題類型路由到不同處理流程
+- **並行鏈**: 同時處理多個客戶請求
+- **擴展鏈**: 添加情感分析和優先級判斷
+
+### 內容創作
+- **基礎鏈**: 生成文章大綱
+- **擴展鏈**: 添加 SEO 優化和格式美化
+- **並行鏈**: 同時生成多個版本進行比較
+- **分支鏈**: 根據主題選擇不同的寫作風格
+
+## 🔧 技術選擇指南
+
+### 選擇 Ollama 版本的情況
+- 本地部署需求
+- 資料隱私要求高
+- 成本控制考量
+- 離線環境使用
+
+### 選擇 Gemini 版本的情況
+- 需要最新的 AI 能力
+- 雲端部署環境
+- 多語言支援需求
+- 高精度要求
+
+## ⚡ 快速開始
+
+### 環境設定
+```bash
+# 安裝必要套件
+pip install langchain langchain-ollama langchain-google-genai python-dotenv
+
+# 設定環境變數
+echo "GOOGLE_API_KEY=your_gemini_api_key" > .env
+```
+
+### 最簡單的範例
+```python
+from langchain.prompts import ChatPromptTemplate
+from langchain.schema.output_parser import StrOutputParser
+from langchain_ollama.llms import OllamaLLM
+
+# 建立模型
+model = OllamaLLM(model="llama3.2:latest")
+
+# 建立提示模板
+prompt = ChatPromptTemplate.from_template("請介紹 {topic}")
+
+# 建立鏈
+chain = prompt | model | StrOutputParser()
+
+# 執行
+result = chain.invoke({"topic": "人工智慧"})
+print(result)
+```
+
+## ❓ 常見問題
+
+### Q: 什麼時候使用並行鏈？
+A: 當你需要同時執行多個獨立的分析任務時，例如同時分析產品的優點和缺點。
+
+### Q: 分支鏈和並行鏈的差別？
+A: 分支鏈是根據條件選擇一個處理路徑，並行鏈是同時執行多個處理路徑。
+
+### Q: 如何選擇 Ollama 還是 Gemini？
+A: 如果注重隱私和成本控制，選擇 Ollama；如果需要最新能力和雲端部署，選擇 Gemini。
+
+### Q: 可以混合使用不同類型的鏈嗎？
+A: 可以！實際上，複雜的應用通常會組合多種鏈類型來實現最佳效果。
+
 ## 1\. Chain 的用途和目的是什麼？
 
 簡單來說，**Chain 的主要目的就是將多個 AI 元件 (如 Prompt Templates, LLMs, 其他 Chains, 資料檢索工具等) 按照特定順序組合起來，形成一個連貫的、自動化的處理流程。**
@@ -97,8 +320,38 @@
       * `.ainvoke()`：支援非同步呼叫，適用於高效能的後端服務。
 3.  **組合性更強**：你可以輕易地將更複雜的元件（如檢索器 `retriever`）用 `|` 符號串接到鏈中，語法保持一致。
 
-**講義結論建議：**
+## 📋 總結
 
-在您的講義中，可以這樣總結：
+### 五種 Chain 類型回顧
+
+| 類型 | 主要用途 | 關鍵技術 | 適用場景 |
+|------|----------|----------|----------|
+| **基礎鏈** | 基本 AI 流程 | LCEL 語法 | 入門學習、簡單問答 |
+| **內部運作** | 底層控制 | RunnableSequence | 除錯優化、精細控制 |
+| **擴展鏈** | 自定義處理 | RunnableLambda | 數據轉換、後處理 |
+| **並行鏈** | 效率優化 | RunnableParallel | 多任務處理、效能提升 |
+| **分支鏈** | 智能路由 | RunnableBranch | 條件判斷、自動分類 |
+
+### 核心概念
 
 > **Chain** 是 LangChain 的核心，它負責將各種功能模組串聯成自動化的工作流。而 **LCEL** 則是當前定義和建立 Chain 的最佳實踐，它使用直觀的管道符號 `|` 來組合元件，不僅讓程式碼更簡潔，還免費附贈了串流、批次處理等強大功能，是所有開發者都應該優先學習和使用的方法。
+
+## 🎯 下一步學習建議
+
+### 進階主題
+1. **RAG (檢索增強生成)** - 結合外部資料庫的智能問答
+2. **Agents** - 讓 AI 自主使用工具和決策
+3. **Memory** - 實現對話記憶和上下文管理
+4. **Streaming** - 實現即時回應和串流輸出
+5. **Batch Processing** - 大量資料的批次處理
+
+### 實戰專案建議
+1. **智能客服系統** - 結合分支鏈和記憶功能
+2. **內容創作助手** - 使用並行鏈生成多版本內容
+3. **資料分析工具** - 結合擴展鏈進行數據處理
+4. **多語言翻譯系統** - 使用分支鏈選擇不同語言模型
+
+### 相關資源
+- [LangChain 官方文檔](https://python.langchain.com/)
+- [LCEL 詳細指南](https://python.langchain.com/docs/expression_language/)
+- [LangChain 社群](https://github.com/langchain-ai/langchain)

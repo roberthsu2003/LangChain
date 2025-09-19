@@ -260,15 +260,16 @@ LangChain 與 LLM模型的聊天模型進行對話,展示如何建立包含系�
 
 ---
 
-## 4與使用者互動的對話範例
+## 4記憶使用者對話內容範例
 
-### 4_chat_model_conversation_with_user.py
+### 範例檔:[4.記憶對話記錄_ollama](./4.記憶對話記錄_ollama.ipynb)
+
 用途：示範一個簡單的 chat loop（互動式），持續保存 `chat_history`（list），並將其作為上下文傳給模型取得回覆。
 
 重點：
-- 使用 `SystemMessage` 作為初始提示（例如：You are a helpful AI assistant.）。
+- 使用 `SystemMessage` 作為初始提示（例如：你是一個樂於助人的 AI 助手。）。
 - 以 while 迴圈讀取使用者輸入，送出 `chat_history` 呼叫 `model.invoke(chat_history)`，再把回覆加入 history。
-- 範例包含停止條件（輸入 `exit` 結束）。
+- 範例包含停止條件（使用者輸入 `exit` 結束）。
 
 依賴：`python-dotenv`、相應 provider 的 LangChain wrapper（OpenAI / Google / Ollama）。
 

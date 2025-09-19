@@ -242,9 +242,9 @@ LangChain 與 LLM模型的聊天模型進行對話,展示如何建立包含系�
 
 範例檔:[對話管理的實用性_gpt-4o](./2.對話管理的實用性_gpt-4o.py)
 
-範例檔[對話管理的實用性_gemini](./2.對話管理的實用性_gemini.py)
+範例檔:[對話管理的實用性_gemini](./2.對話管理的實用性_gemini.py)
 
-範例檔[對話管理的實用性_ollama](./2.對話管理的實用性_ollama.py)
+範例檔:[對話管理的實用性_ollama](./2.對話管理的實用性_ollama.py)
 
 [**對話管理的實用性_輸出結果**](./對話管理的實用性_輸出結果.md)
 
@@ -253,18 +253,8 @@ LangChain 與 LLM模型的聊天模型進行對話,展示如何建立包含系�
 
 ## 3多模型回應範例
 
-### 3_chat_model_alternatives.py
-用途：比較不同提供者的結果或示範如何在程式中替換模型（OpenAI、Google、Ollama 等）。
+範例檔:[gemini_ollama同時回應](./3.多模型回應和比較_gemini_ollama.ipynb)
 
-重點：
-- 同一套 messages 或 prompt 同時呼叫多個 model，並印出各自回應以便比較。
-
-依賴：視使用的 provider 而定（在檔案中可看到 `ChatGoogleGenerativeAI`、`OllamaLLM` 等）。
-
----
-
-### 3_chat_model_alternatives1.py
-用途：進一步的替代/比較範例，範例中呼叫 Google 與 Ollama，並示範把相同 messages 送給不同模型。
 
 重點：用於教學比較各模型在相同 prompt 下的差異。
 

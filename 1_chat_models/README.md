@@ -278,19 +278,6 @@ LangChain 與 LLM模型的聊天模型進行對話,展示如何建立包含系�
 
 ---
 
-### 4_chat_model_conversation_with_user_google.py
-用途：同 `4_chat_model_conversation_with_user.py`，但示範使用 `ChatGoogleGenerativeAI` 作為後端。
-
-重點與執行：確保 Google 授權與 model 名稱正確。
-
----
-
-### 4_chat_model_conversation_with_user_ollama.py
-用途：同上，但使用 Ollama LLM 作為互動式對話後端。
-
-重點：Ollama 回傳格式可能與其他 provider 不同，範例展示如何把回應加入 `chat_history`。
-
----
 
 ## 5儲存訊息歷史到Firebase_Firestore
 

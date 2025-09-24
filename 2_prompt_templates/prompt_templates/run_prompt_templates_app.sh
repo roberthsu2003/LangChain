@@ -63,11 +63,11 @@ read -p "請輸入選項 (1-4): " choice
 case $choice in
     1)
         echo "🚀 啟動完整版應用程式..."
-        uv run python 2_prompt_templates/prompt_templates_gradio_app.py
+        uv run python 2_prompt_templates/prompt_templates/prompt_templates_gradio_app.py
         ;;
     2)
         echo "🚀 啟動簡化版應用程式..."
-        uv run python 2_prompt_templates/simple_prompt_templates_app.py
+        uv run python 2_prompt_templates/prompt_templates/simple_prompt_templates_app.py
         ;;
     3)
         echo "🧪 執行測試..."

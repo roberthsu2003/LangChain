@@ -34,10 +34,11 @@
 
 ```
 2_prompt_templates/
-├── prompt_templates_gradio_app.py      # 完整版應用程式
-├── simple_prompt_templates_app.py      # 簡化版應用程式
-├── run_prompt_templates_app.sh         # 啟動腳本
-├── README_PROMPT_TEMPLATES.md          # 本檔案
+├── prompt_templates/                   # Gradio 應用程式目錄
+│   ├── prompt_templates_gradio_app.py      # 完整版應用程式
+│   ├── simple_prompt_templates_app.py      # 簡化版應用程式
+│   ├── run_prompt_templates_app.sh         # 啟動腳本
+│   └── README_PROMPT_TEMPLATES.md          # 本檔案
 ├── 1.完整範例_無配合模型.ipynb         # 原始範例
 ├── 2.完整範例_配合olloma.ipynb         # Ollama 範例
 ├── 3.完整範例_配合gemini.ipynb         # Gemini 範例
@@ -76,16 +77,16 @@ ANTHROPIC_API_KEY=your_anthropic_api_key
 #### 最簡單的方式
 ```bash
 # 在專案根目錄執行
-./2_prompt_templates/run_prompt_templates_app.sh
+./2_prompt_templates/prompt_templates/run_prompt_templates_app.sh
 ```
 
 #### 使用 uv 執行
 ```bash
 # 完整版應用程式
-uv run python 2_prompt_templates/prompt_templates_gradio_app.py
+uv run python 2_prompt_templates/prompt_templates/prompt_templates_gradio_app.py
 
 # 簡化版應用程式
-uv run python 2_prompt_templates/simple_prompt_templates_app.py
+uv run python 2_prompt_templates/prompt_templates/simple_prompt_templates_app.py
 ```
 
 ## 🎮 使用指南

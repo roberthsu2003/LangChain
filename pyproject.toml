@@ -1,0 +1,22 @@
+[project]
+name = "langchain-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "python-dotenv",
+    "ollama",
+    "langchain",
+    "langchain-community",
+    "langchain-core",
+    "langchain-google-genai",
+    "langchain-openai",
+    "langchain-anthropic",
+    "langchain-ollama",
+    "langchainhub",
+    "ipywidgets",
+    "requests",
+    "gradio",
+    "ipykernel>=6.30.1",
+]

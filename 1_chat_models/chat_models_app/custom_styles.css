@@ -1,0 +1,157 @@
+/* LangChain Chat Models Gradio 應用程式自訂樣式 */
+
+/* 主要容器樣式 */
+.gradio-container {
+    max-width: 1400px !important;
+    margin: auto !important;
+    padding: 20px !important;
+}
+
+/* 聊天介面樣式 */
+.chatbot {
+    min-height: 500px !important;
+    max-height: 700px !important;
+    border-radius: 12px !important;
+    border: 1px solid #e0e0e0 !important;
+    background-color: #fafafa !important;
+}
+
+/* 對話訊息樣式 */
+.chat-message {
+    padding: 12px 16px !important;
+    margin: 8px 0 !important;
+    border-radius: 12px !important;
+    max-width: 100% !important;
+    word-wrap: break-word !important;
+    white-space: pre-wrap !important;
+    line-height: 1.6 !important;
+    font-size: 14px !important;
+}
+
+/* 用戶訊息樣式 */
+.chat-message.user {
+    background-color: #e3f2fd !important;
+    border-left: 4px solid #2196f3 !important;
+    margin-left: 20% !important;
+    box-shadow: 0 2px 4px rgba(33, 150, 243, 0.1) !important;
+}
+
+/* AI 訊息樣式 */
+.chat-message.assistant {
+    background-color: #f3e5f5 !important;
+    border-left: 4px solid #9c27b0 !important;
+    margin-right: 20% !important;
+    box-shadow: 0 2px 4px rgba(156, 39, 176, 0.1) !important;
+}
+
+/* 輸入框樣式 */
+.textbox {
+    min-height: 60px !important;
+    border-radius: 8px !important;
+    border: 1px solid #ddd !important;
+    font-size: 14px !important;
+}
+
+.textbox:focus {
+    border-color: #2196f3 !important;
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1) !important;
+}
+
+/* 按鈕樣式 */
+.btn {
+    border-radius: 8px !important;
+    padding: 8px 16px !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 右側面板樣式 */
+.panel {
+    background-color: #fafafa !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+    margin: 8px !important;
+    border: 1px solid #e0e0e0 !important;
+}
+
+/* 下拉選單樣式 */
+.dropdown {
+    border-radius: 8px !important;
+    border: 1px solid #ddd !important;
+}
+
+/* 標題樣式 */
+.markdown h3 {
+    color: #333 !important;
+    border-bottom: 2px solid #2196f3 !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 16px !important;
+}
+
+/* 響應式設計 */
+@media (min-width: 1200px) {
+    .gradio-container {
+        max-width: 1600px !important;
+    }
+    
+    .chatbot {
+        min-height: 600px !important;
+        max-height: 800px !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .gradio-container {
+        max-width: 1800px !important;
+    }
+    
+    .chatbot {
+        min-height: 700px !important;
+        max-height: 900px !important;
+    }
+}
+
+@media (min-width: 1600px) {
+    .gradio-container {
+        max-width: 2000px !important;
+    }
+}
+
+/* 深色模式支援 */
+@media (prefers-color-scheme: dark) {
+    .gradio-container {
+        background-color: #1a1a1a !important;
+        color: #ffffff !important;
+    }
+    
+    .chatbot {
+        background-color: #2d2d2d !important;
+        border-color: #444 !important;
+    }
+    
+    .chat-message.user {
+        background-color: #1e3a5f !important;
+        border-left-color: #64b5f6 !important;
+    }
+    
+    .chat-message.assistant {
+        background-color: #4a2c4a !important;
+        border-left-color: #ba68c8 !important;
+    }
+    
+    .textbox {
+        background-color: #2d2d2d !important;
+        border-color: #444 !important;
+        color: #ffffff !important;
+    }
+    
+    .panel {
+        background-color: #2d2d2d !important;
+        border-color: #444 !important;
+    }
+}

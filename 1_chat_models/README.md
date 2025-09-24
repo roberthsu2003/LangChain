@@ -9,6 +9,7 @@
 4. [替代_比較範例](#3替代_比較範例)
 5. [與使用者互動的對話範例（含 chat loop）](#4與使用者互動的對話範例)
 6. [儲存訊息歷史到 Firebase/Firestore](#5儲存訊息歷史到Firebase_Firestore)
+7. [Gradio應用程式實作](./chat_models_app/GRADIO_應用程式使用說明.md)
 ---
 
 ## 1_主要模型提供商的配置

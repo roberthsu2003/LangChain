@@ -15,6 +15,8 @@ LangChain 的 **Prompt Template (提示模板)** 主要目的有三個：
 ## 範例3:Prompt Template 完整範例：專業翻譯工具:[配合gemini模型版本](./3.完整範例_配合gemini.ipynb)
 
 
+## [Gradio應用程式實作](./prompt_templates/README_PROMPT_TEMPLATES.md)
+
 ### 1\. 結構化與標準化提示 (Prompt Engineering)
 
 當我們與大型語言模型 (LLM) 互動時，給予的「提示 (Prompt)」品質直接決定了輸出的品質。一個好的提示通常不只是一個簡單的問題，它可能包含：

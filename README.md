@@ -21,7 +21,7 @@
 ### 🛠️ 核心技術
 | 章節 | 主題 | 功能說明 | 學習重點 |
 |------|------|----------|----------|
-| **第2章** | [Gradio介面使用](https://github.com/roberthsu2003/gradio) | 🎨 快速建立AI介面 | 使用Gradio快速建立互動式AI應用 |
+| **第2章** | [Gradio介面使用](https://github.com/roberthsu2003/gradio) | 🎨 快速建立AI**介面** | 使用Gradio快速建立互動式AI應用 |
 | **第3章** | [本地端模型_連結ollama](./0_連結ollama/README.md) | 🏠 本地AI模型部署 | 安裝Ollama、使用本地LLM模型 |
 | **第4章** | [聊天模型(Chat Models)](./1_chat_models) | 💬 AI對話功能 | 整合各種AI模型API，實現智能對話 |
 | **第5章** | [提示樣版(Prompt Templates)](./2_prompt_templates/) | 📝 提示工程技術 | 結構化提示、動態輸入、提升重複使用性 |

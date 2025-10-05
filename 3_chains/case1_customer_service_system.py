@@ -2,6 +2,24 @@
 案例 1: 智能客服系統
 功能：自動處理客戶諮詢，根據問題類型提供不同的回應
 使用技術：分支鏈 (RunnableBranch) + 擴展鏈 (RunnableLambda)
+
+🤖 AI 輔助提示：
+你可以使用 AI 協助完成以下任務：
+
+1. 建立基礎結構
+   Prompt: "幫我使用 langchain 和 gradio 建立一個智能客服系統的基礎架構，需要包含環境設定、模型初始化、以及 Gradio 介面"
+
+2. 設計 Prompt 模板
+   Prompt: "為客服系統設計 4 種不同的 ChatPromptTemplate：投訴處理、產品諮詢、退換貨請求、一般問題，每種都要有適當的 system 和 human 訊息"
+
+3. 實作分支邏輯
+   Prompt: "使用 RunnableBranch 建立條件分支，根據客戶問題中的關鍵字（投訴、退貨、價格等）自動選擇對應的處理流程"
+
+4. 格式化輸出
+   Prompt: "建立一個 format_customer_service_response 函數，使用 RunnableLambda 包裝，為客服回覆添加美化格式、時間戳記和聯絡資訊"
+
+5. 完整整合
+   Prompt: "將分支鏈和格式化函數組合成完整的 customer_service_chain，並整合到 Gradio 介面中"
 """
 
 import gradio as gr
@@ -19,6 +37,8 @@ load_dotenv()
 model = OllamaLLM(model="llama3.2:latest")
 
 # 定義不同類型的客服模板
+# 💡 AI 提示：可以請 AI 幫你設計更多專業的 prompt 模板
+# Prompt: "為客服系統再增加 2 種場景：技術支援和帳號問題，設計對應的 ChatPromptTemplate"
 complaint_template = ChatPromptTemplate.from_messages([
     ("system", "你是專業的客服人員，處理客戶投訴。請保持同理心，提供解決方案。"),
     ("human", "客戶投訴：{question}")
@@ -61,6 +81,8 @@ customer_service_branch = RunnableBranch(
 )
 
 # 添加格式化功能 - 擴展鏈
+# 💡 AI 提示：客製化輸出格式
+# Prompt: "修改 format_customer_service_response 函數，根據不同問題類型顯示不同的格式和圖示"
 def format_customer_service_response(reply):
     """格式化客服回覆，添加時間戳記和標準格式"""
     formatted = f"""
@@ -88,6 +110,8 @@ customer_service_chain = (
 )
 
 # 建立 Gradio 介面
+# 💡 AI 提示：加入進階功能
+# Prompt: "為客服系統加入對話歷史記錄功能，使用 Gradio 的 Chatbot 元件建立多輪對話"
 def process_customer_inquiry(question):
     """處理客戶諮詢"""
     if not question.strip():

@@ -80,29 +80,6 @@ await chain.ainvoke(input)     # 非同步調用
 
 ---
 
-## 📖 完整學習文檔
-
-| 文檔 | 內容 | 閱讀時間 | 適合對象 |
-|------|------|----------|----------|
-| [📘 CHAINS_GUIDE.md](CHAINS_GUIDE.md) | 10 種 Chain 類型詳細說明 | 30 分鐘 | 所有學習者 |
-| [🛤️ LEARNING_PATHS.md](LEARNING_PATHS.md) | 三種學習路徑建議 | 15 分鐘 | 規劃學習路線者 |
-| [💼 PRACTICAL_CASES.md](PRACTICAL_CASES.md) | 實戰案例與應用場景 | 20 分鐘 | 實務應用者 |
-| [🔧 TECHNICAL_GUIDE.md](TECHNICAL_GUIDE.md) | 技術深度剖析與最佳實踐 | 25 分鐘 | 進階開發者 |
-| [📋 SUMMARY.md](SUMMARY.md) | 快速參考表與常見問題 | 10 分鐘 | 複習查詢者 |
-
----
-
-## 🎯 學習路徑
-
-### 🚀 快速實戰路徑（推薦初學者）
-適合想快速上手、注重實際應用的學習者
-
-**學習順序**：1 → 2 → 3 → 4 → 5 → 9 → 6 → 7 → 8 → 10
-
-**優點**：難度平滑上升，優先學習最實用技術
-
----
-
 ## ❓ 常見問題速答
 
 ### Q1: Ollama 和 Gemini 該選哪個？
@@ -138,7 +115,6 @@ await chain.ainvoke(input)     # 非同步調用
 - **功能**：多維度並行分析，自動生成報告
 - **檔案**：[case2_content_analysis_system.py](case2_content_analysis_system.py)
 
-👉 [查看完整案例說明](PRACTICAL_CASES.md)
 
 ---
 
@@ -178,15 +154,4 @@ await chain.ainvoke(input)     # 非同步調用
 
 ---
 
-## 📞 需要幫助？
-
-- 📖 先查閱 [SUMMARY.md](SUMMARY.md) 的故障排除章節
-- 💬 查看 [常見問題](SUMMARY.md#❓-常見問題-faq)
-- 🔍 參考 [技術深度指南](TECHNICAL_GUIDE.md)
-- 📝 嘗試完成 [學習測驗](quiz_chains.md) 檢視理解程度
-
----
-
 **祝學習順利！** 🚀
-
-> 💡 建議：先閱讀 [CHAINS_GUIDE.md](CHAINS_GUIDE.md) 了解 10 種 Chain 類型，再根據 [LEARNING_PATHS.md](LEARNING_PATHS.md) 選擇適合自己的學習路徑。

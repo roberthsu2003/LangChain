@@ -21,18 +21,18 @@
 
 ## 🗺️ 十種 Chain 類型速覽
 
-| 類型 | 難度 | 核心技術 | 主要用途 |
+| 類型 | 難度 | 核心技術 | 範例檔案 |
 |------|------|----------|----------|
-| 1️⃣ 基礎鏈 | ⭐ | LCEL 語法 | 入門學習、簡單問答 |
-| 2️⃣ 擴展鏈 | ⭐⭐ | RunnableLambda | 自定義處理、資料轉換 |
-| 3️⃣ 並行鏈 | ⭐⭐⭐ | RunnableParallel | 多任務並行、效率優化 |
-| 4️⃣ 分支鏈 | ⭐⭐⭐ | RunnableBranch | 智能路由、條件判斷 |
-| 5️⃣ 串聯模型鏈 | ⭐⭐⭐ | 多模型順序調用 | 多步驟處理、內容優化 |
-| 6️⃣ 內部運作 | ⭐⭐⭐⭐ | RunnableSequence | 深入理解、底層控制 |
-| 7️⃣ 閉包模型鏈 | ⭐⭐⭐⭐ | Lambda 閉包調用 | 完全控制、複雜邏輯 |
-| 8️⃣ 並行模型鏈 | ⭐⭐⭐⭐ | 並行模型調用 | 多維度分析、效能提升 |
-| 9️⃣ 動態提示鏈 ⭐ | ⭐⭐⭐⭐⭐ | 動態 Prompt 準備 | 智能自適應（推薦） |
-| 🔟 Lambda 模型整合 | ⭐⭐⭐⭐⭐ | 四種方法綜合 | 學習參考、方法對比 |
+| 1️⃣ 基礎鏈 | ⭐ | LCEL 語法 | [Ollama](1_chains_basics_ollama.ipynb) \| [Gemini](1_chains_basics_gemini.ipynb) |
+| 2️⃣ 擴展鏈 | ⭐⭐ | RunnableLambda | [Ollama](2_chains_extended_ollama.ipynb) \| [Gemini](2_chains_extended_gemini.ipynb) |
+| 3️⃣ 並行鏈 | ⭐⭐⭐ | RunnableParallel | [Ollama](3_chains_parallel_ollama.ipynb) \| [Gemini](3_chains_parallel_gemini.ipynb) |
+| 4️⃣ 分支鏈 | ⭐⭐⭐ | RunnableBranch | [Ollama](4_chains_branching_ollama.ipynb) \| [Gemini](4_chains_branching_gemini.ipynb) |
+| 5️⃣ 串聯模型鏈 | ⭐⭐⭐ | 多模型順序調用 | [Ollama](5_chains_sequential_model_ollama.ipynb) \| [Gemini](5_chains_sequential_model_gemini.ipynb) |
+| 6️⃣ 內部運作 | ⭐⭐⭐⭐ | RunnableSequence | [Ollama 1](6_chains_under_the_hood_ollama1.ipynb) \| [Ollama 2](6_chains_under_the_hood_ollama2.ipynb) \| [Gemini](6_chains_under_the_hood_gemini.ipynb) |
+| 7️⃣ 閉包模型鏈 | ⭐⭐⭐⭐ | Lambda 閉包調用 | [Ollama](7_chains_closure_model_ollama.ipynb) \| [Gemini](7_chains_closure_model_gemini.ipynb) |
+| 8️⃣ 並行模型鏈 | ⭐⭐⭐⭐ | 並行模型調用 | [Ollama](8_chains_parallel_model_ollama.ipynb) \| [Gemini](8_chains_parallel_model_gemini.ipynb) |
+| 9️⃣ 動態提示鏈 ⭐ | ⭐⭐⭐⭐⭐ | 動態 Prompt 準備 | [Ollama](9_chains_dynamic_prompt_ollama.ipynb) \| [Gemini](9_chains_dynamic_prompt_gemini.ipynb) |
+| 🔟 Lambda 模型整合 | ⭐⭐⭐⭐⭐ | 四種方法綜合 | [Ollama](10_chains_lambda_integration_ollama.ipynb) |
 
 ---
 

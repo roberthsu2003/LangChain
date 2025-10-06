@@ -23,16 +23,16 @@
 
 | 類型 | 難度 | 核心技術 | 主要用途 |
 |------|------|----------|----------|
-| [1️⃣ 基礎鏈](CHAINS_GUIDE.md#1️⃣-基礎鏈-basic-chains) | ⭐ | LCEL 語法 | 入門學習、簡單問答 |
-| [2️⃣ 擴展鏈](CHAINS_GUIDE.md#2️⃣-擴展鏈-extended-chains) | ⭐⭐ | RunnableLambda | 自定義處理、資料轉換 |
-| [3️⃣ 並行鏈](CHAINS_GUIDE.md#3️⃣-並行鏈-parallel-chains) | ⭐⭐⭐ | RunnableParallel | 多任務並行、效率優化 |
-| [4️⃣ 分支鏈](CHAINS_GUIDE.md#4️⃣-分支鏈-branching-chains) | ⭐⭐⭐ | RunnableBranch | 智能路由、條件判斷 |
-| [5️⃣ 串聯模型鏈](CHAINS_GUIDE.md#5️⃣-串聯模型鏈-sequential-model-chains) | ⭐⭐⭐ | 多模型順序調用 | 多步驟處理、內容優化 |
-| [6️⃣ 內部運作](CHAINS_GUIDE.md#6️⃣-鏈的內部運作-chains-under-the-hood) | ⭐⭐⭐⭐ | RunnableSequence | 深入理解、底層控制 |
-| [7️⃣ 閉包模型鏈](CHAINS_GUIDE.md#7️⃣-閉包模型鏈-closure-model-chains) | ⭐⭐⭐⭐ | Lambda 閉包調用 | 完全控制、複雜邏輯 |
-| [8️⃣ 並行模型鏈](CHAINS_GUIDE.md#8️⃣-並行模型鏈-parallel-model-chains) | ⭐⭐⭐⭐ | 並行模型調用 | 多維度分析、效能提升 |
-| [9️⃣ 動態提示鏈](CHAINS_GUIDE.md#9️⃣-動態提示鏈-dynamic-prompt-chains) ⭐ | ⭐⭐⭐⭐⭐ | 動態 Prompt 準備 | 智能自適應（推薦） |
-| [🔟 Lambda 模型整合](CHAINS_GUIDE.md#🔟-lambda-模型整合-lambda-model-integration) | ⭐⭐⭐⭐⭐ | 四種方法綜合 | 學習參考、方法對比 |
+| 1️⃣ 基礎鏈 | ⭐ | LCEL 語法 | 入門學習、簡單問答 |
+| 2️⃣ 擴展鏈 | ⭐⭐ | RunnableLambda | 自定義處理、資料轉換 |
+| 3️⃣ 並行鏈 | ⭐⭐⭐ | RunnableParallel | 多任務並行、效率優化 |
+| 4️⃣ 分支鏈 | ⭐⭐⭐ | RunnableBranch | 智能路由、條件判斷 |
+| 5️⃣ 串聯模型鏈 | ⭐⭐⭐ | 多模型順序調用 | 多步驟處理、內容優化 |
+| 6️⃣ 內部運作 | ⭐⭐⭐⭐ | RunnableSequence | 深入理解、底層控制 |
+| 7️⃣ 閉包模型鏈 | ⭐⭐⭐⭐ | Lambda 閉包調用 | 完全控制、複雜邏輯 |
+| 8️⃣ 並行模型鏈 | ⭐⭐⭐⭐ | 並行模型調用 | 多維度分析、效能提升 |
+| 9️⃣ 動態提示鏈 ⭐ | ⭐⭐⭐⭐⭐ | 動態 Prompt 準備 | 智能自適應（推薦） |
+| 🔟 Lambda 模型整合 | ⭐⭐⭐⭐⭐ | 四種方法綜合 | 學習參考、方法對比 |
 
 ---
 
@@ -98,8 +98,6 @@ await chain.ainvoke(input)     # 非同步調用
 
 ### Q5: 可以混合使用不同類型的鏈嗎？
 可以！複雜應用通常會組合多種 Chain 類型
-
-👉 [查看完整 FAQ](SUMMARY.md#❓-常見問題-faq)
 
 ---
 

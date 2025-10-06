@@ -58,6 +58,49 @@ chain = prompt_template | model | StrOutputParser()
 了解鏈的底層實作機制,掌握 RunnableSequence 和 RunnableLambda
 
 ### 📝 **核心概念**
+
+RunnableLambda 就是把「任何 Python 函數」包裝成可以串接的元件。
+
+#### 拆解步驟
+
+1. 找出Chain中的每個處理步驟
+
+```
+# 原本的 Chain
+chain = prompt | llm | parser
+```
+
+2. 將每個步驟寫成獨立函數
+
+```
+from langchain_core.runnables import RunnableLambda
+# 步驟 1: 格式化提示
+def format_prompt(input_dict):
+    return prompt.format(**input_dict)
+    
+# 步驟 2: 呼叫 LLM
+def call_llm(formatted_prompt):
+    return llm.invoke(formatted_prompt)
+    
+# 步驟 3: 解析輸出
+def parse_output(llm_response):
+    return parser.parse(llm_response)   
+
+```
+
+3. 用 RunnableLambda 包裝
+
+```
+step1 = RunnableLambda(format_prompt)
+step2 = RunnableLambda(call_llm)
+step3 = RunnableLambda(parse_output)
+
+# 重新組合
+custom_chain = step1 | step2 | step3
+```
+
+4. 也可以手動組合鏈
+
 ```python
 # 手動組合鏈的各個步驟
 chain = RunnableSequence(
@@ -66,6 +109,13 @@ chain = RunnableSequence(
     last=parse_output
 )
 ```
+
+### 什麼時候需要 RunnableLambda？
+
+- 需要自訂資料處理邏輯
+- 需要記錄日誌或除錯
+- 需要條件判斷（根據輸入決定下一步）
+- 需要呼叫外部 API 或資料庫
 
 ### 💡 **簡單範例**
 文字摘要系統 - 將長篇文章濃縮成簡潔重點
@@ -76,7 +126,10 @@ chain = RunnableSequence(
 - 學習 LangChain 的內部架構
 
 ### 📁 **範例檔案**
-- [鏈的內部運作 - Ollama 版本](2_chains_under_the_hood_ollama.ipynb)
+- [鏈的內部運作 - Ollama 版本1](2_chains_under_the_hood_ollama1.ipynb)
+
+- [鏈的內部運作 - Ollama 版本2](2_chains_under_the_hood_ollama2.ipynb)
+
 - [鏈的內部運作 - Gemini 版本](2_chains_under_the_hood_gemini.ipynb)
 
 ---

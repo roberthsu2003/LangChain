@@ -470,13 +470,6 @@ complete_chain = (
 
 ---
 
-## 📚 相關資源
-
-- [案例 1：智能客服系統](case1_customer_service_system.py)
-- [案例 2：內容分析系統](case2_content_analysis_system.py)
-- [LangChain 官方文檔](https://python.langchain.com/)
-- [LCEL 詳細指南](https://python.langchain.com/docs/expression_language/)
-
----
+👉 [返回 README](README.md)
 
 **祝你學習愉快！加油！💪**

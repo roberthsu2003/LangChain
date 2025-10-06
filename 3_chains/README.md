@@ -31,7 +31,7 @@
 | 6️⃣ 內部運作 | ⭐⭐⭐⭐ | RunnableSequence | [Ollama](6_chains_under_the_hood_ollama.ipynb) \| [Gemini](6_chains_under_the_hood_gemini.ipynb) | 深入理解、底層控制 |
 | 7️⃣ 閉包模型鏈 | ⭐⭐⭐⭐ | Lambda 閉包調用 | [Ollama](7_chains_closure_model_ollama.ipynb) \| [Gemini](7_chains_closure_model_gemini.ipynb) | 完全控制、複雜邏輯 |
 | 8️⃣ 並行模型鏈 | ⭐⭐⭐⭐ | 並行模型調用 | [Ollama](8_chains_parallel_model_ollama.ipynb) \| [Gemini](8_chains_parallel_model_gemini.ipynb) | 多維度分析、效能提升 |
-| 9️⃣ 動態提示鏈 ⭐ | ⭐⭐⭐⭐⭐ | 動態 Prompt 準備 | [Ollama](9_chains_dynamic_prompt_ollama.ipynb) \| [Gemini](9_chains_dynamic_prompt_gemini.ipynb) | 智能自適應（推薦） |
+| 9️⃣ 動態提示鏈 | ⭐⭐⭐⭐⭐ | 動態 Prompt 準備 | [Ollama](9_chains_dynamic_prompt_ollama.ipynb) \| [Gemini](9_chains_dynamic_prompt_gemini.ipynb) | 智能自適應（推薦） |
 | 🔟 Lambda 模型整合 | ⭐⭐⭐⭐⭐ | 四種方法綜合 | [Ollama](10_chains_lambda_integration_ollama.ipynb) \| [Gemini](10_chains_lambda_integration_gemini.ipynb) | 學習參考、方法對比 |
 
 ---

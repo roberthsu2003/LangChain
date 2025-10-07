@@ -31,13 +31,12 @@
 |------|------|----------|----------|
 | **第6章** | [連結Chains](./3_chains/) | ⛓️ 工作流程串接 | 將多個AI元件串聯成自動化流程 |
 | **第7章** | [RAG (Retrieval-Augmented Generation)](./4_rag) | 🔍 檢索增強生成 | 結合外部資料庫的智能問答系統 |
-| **第8章** | [Agents & Tools](./5_agents_and_tools) | 🛠️ 智能代理與工具 | 讓AI自主使用工具和做出決策 |
+| **第8章(待完善)** | [Agents & Tools](./5_agents_and_tools) | 🛠️ 智能代理與工具 | 讓AI自主使用工具和做出決策 |
 
 ### 🎯 實戰應用
 | 章節 | 主題 | 功能說明 | 學習重點 |
 |------|------|----------|----------|
-| **第9章** | [簡單應用範例](簡單範例) | 🚀 實際專案案例 | 整合所學技術，建立完整AI應用 |
-| **第10章** | [待規劃](./待規劃) | 📋 未來發展方向 | 持續更新和擴展功能 |
+| **第9章(待完善)** | [簡單應用範例](簡單範例) | 🚀 實際專案案例 | 整合所學技術，建立完整AI應用 |
 
 ---
 
@@ -49,18 +48,11 @@
 3. **第4章** → 掌握聊天模型
 4. **第5章** → 學習提示工程
 5. **第6章** → 理解鏈的概念
-6. **第7章** → 進階RAG應用
+6. **第7章** → RAG應用
 7. **第8章** → 智能代理開發
-
-### 有經驗開發者
-- 可直接跳轉到 **第6-8章** 學習進階概念
-- 參考 **第9章** 的實戰案例
-- 關注 **第10章** 的未來規劃
-
 ---
 
 ## 🔧 技術特色
-
 ### 🌟 核心優勢
 - **模組化設計**: 每個元件都可獨立使用和組合
 - **多模型支援**: 支援OpenAI、Google、本地模型等
@@ -76,7 +68,6 @@
 - **本地部署**: 使用Ollama在本地運行
 - **雲端部署**: 支援各種雲端平台
 - **混合部署**: 結合本地和雲端優勢
-
 ---
 
 ## 📖 學習資源
@@ -97,36 +88,6 @@
 
 ---
 
-## 🎯 Gradio 應用程式
-
-本專案提供了多個基於 Gradio 的互動式應用程式，讓您能夠直接體驗 LangChain 的各種功能：
-
-### 💬 Chat Models 應用程式
-- **位置**: `1_chat_models/chat_models_app/`
-- **功能**: 多模型對話介面，支援 Ollama、Gemini、OpenAI、Anthropic
-- **特色**: 對話記憶、模型切換、對話匯出
-- **啟動**: `./start_gradio.sh` 或 `uv run python 1_chat_models/chat_models_app/chat_models_gradio_app.py`
-
-### 🎯 Prompt Templates 應用程式
-- **位置**: `2_prompt_templates/prompt_templates/`
-- **功能**: Prompt Template 展示和測試平台
-- **特色**: 6種模板類型、多模型支援、歷史記錄
-- **啟動**: `./start_prompt_templates.sh` 或 `uv run python 2_prompt_templates/prompt_templates/prompt_templates_gradio_app.py`
-
-### 🚀 快速啟動
-```bash
-# Chat Models 應用程式
-./start_gradio.sh
-
-# Prompt Templates 應用程式
-./start_prompt_templates.sh
-```
-
----
-
-## 🚀 開始你的AI之旅
-
-選擇適合你的學習路徑，開始建立你的第一個AI應用！
 
 > **💡 提示**: 建議從第1章開始，按順序學習，每個章節都有完整的範例和說明。
 

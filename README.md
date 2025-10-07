@@ -97,36 +97,6 @@
 
 ---
 
-## 🎯 Gradio 應用程式
-
-本專案提供了多個基於 Gradio 的互動式應用程式，讓您能夠直接體驗 LangChain 的各種功能：
-
-### 💬 Chat Models 應用程式
-- **位置**: `1_chat_models/chat_models_app/`
-- **功能**: 多模型對話介面，支援 Ollama、Gemini、OpenAI、Anthropic
-- **特色**: 對話記憶、模型切換、對話匯出
-- **啟動**: `./start_gradio.sh` 或 `uv run python 1_chat_models/chat_models_app/chat_models_gradio_app.py`
-
-### 🎯 Prompt Templates 應用程式
-- **位置**: `2_prompt_templates/prompt_templates/`
-- **功能**: Prompt Template 展示和測試平台
-- **特色**: 6種模板類型、多模型支援、歷史記錄
-- **啟動**: `./start_prompt_templates.sh` 或 `uv run python 2_prompt_templates/prompt_templates/prompt_templates_gradio_app.py`
-
-### 🚀 快速啟動
-```bash
-# Chat Models 應用程式
-./start_gradio.sh
-
-# Prompt Templates 應用程式
-./start_prompt_templates.sh
-```
-
----
-
-## 🚀 開始你的AI之旅
-
-選擇適合你的學習路徑，開始建立你的第一個AI應用！
 
 > **💡 提示**: 建議從第1章開始，按順序學習，每個章節都有完整的範例和說明。
 

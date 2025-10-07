@@ -40,22 +40,22 @@ model = OllamaLLM(model="llama3.2:latest")
 # 💡 AI 提示：可以請 AI 幫你設計更多專業的 prompt 模板
 # Prompt: "為客服系統再增加 2 種場景：技術支援和帳號問題，設計對應的 ChatPromptTemplate"
 complaint_template = ChatPromptTemplate.from_messages([
-    ("system", "你是專業的客服人員，處理客戶投訴。請保持同理心，提供解決方案。"),
+    ("system", "你是專業的客服人員，處理客戶投訴。請保持同理心，提供解決方案。\n所有回覆使用繁體中文"),
     ("human", "客戶投訴：{question}")
 ])
 
 inquiry_template = ChatPromptTemplate.from_messages([
-    ("system", "你是專業的客服人員，回答產品諮詢。請提供詳細且準確的資訊。"),
+    ("system", "你是專業的客服人員，回答產品諮詢。請提供詳細且準確的資訊。\n所有回覆使用繁體中文"),
     ("human", "客戶諮詢：{question}")
 ])
 
 refund_template = ChatPromptTemplate.from_messages([
-    ("system", "你是專業的客服人員，處理退換貨請求。請說明退換貨流程和注意事項。"),
+    ("system", "你是專業的客服人員，處理退換貨請求。請說明退換貨流程和注意事項。\n所有回覆使用繁體中文"),
     ("human", "退換貨請求：{question}")
 ])
 
 general_template = ChatPromptTemplate.from_messages([
-    ("system", "你是友善的客服人員，回答一般問題。"),
+    ("system", "你是友善的客服人員，回答一般問題。\n所有回覆使用繁體中文"),
     ("human", "客戶問題：{question}")
 ])
 

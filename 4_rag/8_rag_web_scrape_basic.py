@@ -4,64 +4,64 @@ from dotenv import load_dotenv
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_community.vectorstores import Chroma
-from langchain_openai import OpenAIEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 
-# Load environment variables from .env
+# 從 .env 載入環境變數
 load_dotenv()
 
-# Define the persistent directory
+# 定義持久化目錄
 current_dir = os.path.dirname(os.path.abspath(__file__))
 db_dir = os.path.join(current_dir, "db")
 persistent_directory = os.path.join(db_dir, "chroma_db_apple")
 
-# Step 1: Scrape the content from apple.com using WebBaseLoader
-# WebBaseLoader loads web pages and extracts their content
+# 步驟 1：使用 WebBaseLoader 從 apple.com 抓取內容
+# WebBaseLoader 載入網頁並提取其內容
 urls = ["https://www.apple.com/"]
 
-# Create a loader for web content
+# 建立網頁內容載入器
 loader = WebBaseLoader(urls)
 documents = loader.load()
 
-# Step 2: Split the scraped content into chunks
-# CharacterTextSplitter splits the text into smaller chunks
+# 步驟 2：將抓取的內容分割成塊
+# CharacterTextSplitter 將文本分割成較小的塊
 text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
 docs = text_splitter.split_documents(documents)
 
-# Display information about the split documents
-print("\n--- Document Chunks Information ---")
-print(f"Number of document chunks: {len(docs)}")
-print(f"Sample chunk:\n{docs[0].page_content}\n")
+# 顯示分割文件的資訊
+print("\n--- 文件塊資訊 ---")
+print(f"文件塊數量：{len(docs)}")
+print(f"範例塊：\n{docs[0].page_content}\n")
 
-# Step 3: Create embeddings for the document chunks
-# OpenAIEmbeddings turns text into numerical vectors that capture semantic meaning
-embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+# 步驟 3：為文件塊建立嵌入
+# OpenAIEmbeddings 將文本轉換為捕捉語義意義的數值向量
+embeddings = HuggingFaceEmbeddings(model_name="jinaai/jina-embeddings-v2-base-zh")
 
-# Step 4: Create and persist the vector store with the embeddings
-# Chroma stores the embeddings for efficient searching
+# 步驟 4：使用嵌入建立並持久化向量存儲
+# Chroma 儲存嵌入以進行高效搜尋
 if not os.path.exists(persistent_directory):
-    print(f"\n--- Creating vector store in {persistent_directory} ---")
+    print(f"\n--- 正在 {persistent_directory} 中建立向量存儲 ---")
     db = Chroma.from_documents(docs, embeddings, persist_directory=persistent_directory)
-    print(f"--- Finished creating vector store in {persistent_directory} ---")
+    print(f"--- 完成在 {persistent_directory} 中建立向量存儲 ---")
 else:
-    print(f"Vector store {persistent_directory} already exists. No need to initialize.")
+    print(f"向量存儲 {persistent_directory} 已存在。無需初始化。")
     db = Chroma(persist_directory=persistent_directory, embedding_function=embeddings)
 
-# Step 5: Query the vector store
-# Create a retriever for querying the vector store
+# 步驟 5：查詢向量存儲
+# 建立用於查詢向量存儲的檢索器
 retriever = db.as_retriever(
     search_type="similarity",
     search_kwargs={"k": 3},
 )
 
-# Define the user's question
+# 定義使用者的問題
 query = "What new products are announced on Apple.com?"
 
-# Retrieve relevant documents based on the query
+# 根據查詢檢索相關文件
 relevant_docs = retriever.invoke(query)
 
-# Display the relevant results with metadata
-print("\n--- Relevant Documents ---")
+# 顯示相關結果及元數據
+print("\n--- 相關文件 ---")
 for i, doc in enumerate(relevant_docs, 1):
-    print(f"Document {i}:\n{doc.page_content}\n")
+    print(f"文件 {i}：\n{doc.page_content}\n")
     if doc.metadata:
-        print(f"Source: {doc.metadata.get('source', 'Unknown')}\n")
+        print(f"來源：{doc.metadata.get('source', 'Unknown')}\n")

@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(sed:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(python3:*)",
+      "Bash(source:*)",
+      "Bash(uv pip:*)",
+      "Bash(uv run:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []

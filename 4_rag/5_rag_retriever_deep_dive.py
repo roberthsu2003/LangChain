@@ -2,29 +2,29 @@ import os
 
 from dotenv import load_dotenv
 from langchain_community.vectorstores import Chroma
-from langchain_openai import OpenAIEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 
 load_dotenv()
 
-# Define the persistent directory
+# 定義持久化目錄
 current_dir = os.path.dirname(os.path.abspath(__file__))
 db_dir = os.path.join(current_dir, "db")
-persistent_directory = os.path.join(db_dir, "chroma_db_with_metadata")
+persistent_directory = os.path.join(db_dir, "chroma_db_with_metadata_chinese")
 
-# Define the embedding model
-embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+# 定義嵌入模型
+embeddings = HuggingFaceEmbeddings(model_name="jinaai/jina-embeddings-v2-base-zh")
 
-# Load the existing vector store with the embedding function
+# 使用嵌入函數載入現有的向量存儲
 db = Chroma(persist_directory=persistent_directory,
             embedding_function=embeddings)
 
 
-# Function to query a vector store with different search types and parameters
+# 使用不同搜尋類型和參數查詢向量存儲的函數
 def query_vector_store(
     store_name, query, embedding_function, search_type, search_kwargs
 ):
     if os.path.exists(persistent_directory):
-        print(f"\n--- Querying the Vector Store {store_name} ---")
+        print(f"\n--- 正在查詢向量存儲 {store_name} ---")
         db = Chroma(
             persist_directory=persistent_directory,
             embedding_function=embedding_function,
@@ -34,38 +34,38 @@ def query_vector_store(
             search_kwargs=search_kwargs,
         )
         relevant_docs = retriever.invoke(query)
-        # Display the relevant results with metadata
-        print(f"\n--- Relevant Documents for {store_name} ---")
+        # 顯示相關結果及元數據
+        print(f"\n--- {store_name} 的相關文件 ---")
         for i, doc in enumerate(relevant_docs, 1):
-            print(f"Document {i}:\n{doc.page_content}\n")
+            print(f"文件 {i}:\n{doc.page_content}\n")
             if doc.metadata:
-                print(f"Source: {doc.metadata.get('source', 'Unknown')}\n")
+                print(f"來源: {doc.metadata.get('source', 'Unknown')}\n")
     else:
-        print(f"Vector store {store_name} does not exist.")
+        print(f"向量存儲 {store_name} 不存在。")
 
 
-# Define the user's question
-query = "How did Juliet die?"
+# 定義使用者的問題
+query = "賈寶玉和林黛玉是什麼關係?"
 
-# Showcase different retrieval methods
+# 展示不同的檢索方法
 
-# 1. Similarity Search
-# This method retrieves documents based on vector similarity.
-# It finds the most similar documents to the query vector based on cosine similarity.
-# Use this when you want to retrieve the top k most similar documents.
-print("\n--- Using Similarity Search ---")
+# 1. 相似度搜尋
+# 此方法根據向量相似度檢索文件。
+# 它根據餘弦相似度找到與查詢向量最相似的文件。
+# 當您想要檢索最相似的前 k 個文件時使用此方法。
+print("\n--- 使用相似度搜尋 ---")
 query_vector_store("chroma_db_with_metadata", query,
                    embeddings, "similarity", {"k": 3})
 
-# 2. Max Marginal Relevance (MMR)
-# This method balances between selecting documents that are relevant to the query and diverse among themselves.
-# 'fetch_k' specifies the number of documents to initially fetch based on similarity.
-# 'lambda_mult' controls the diversity of the results: 1 for minimum diversity, 0 for maximum.
-# Use this when you want to avoid redundancy and retrieve diverse yet relevant documents.
-# Note: Relevance measures how closely documents match the query.
-# Note: Diversity ensures that the retrieved documents are not too similar to each other,
-#       providing a broader range of information.
-print("\n--- Using Max Marginal Relevance (MMR) ---")
+# 2. 最大邊際相關性 (MMR)
+# 此方法在選擇與查詢相關的文件和文件之間的多樣性之間取得平衡。
+# 'fetch_k' 指定根據相似度初始獲取的文件數量。
+# 'lambda_mult' 控制結果的多樣性：1 表示最小多樣性，0 表示最大多樣性。
+# 當您想要避免冗餘並檢索多樣但相關的文件時使用此方法。
+# 注意：相關性衡量文件與查詢的匹配程度。
+# 注意：多樣性確保檢索到的文件彼此不太相似，
+#       提供更廣泛的資訊範圍。
+print("\n--- 使用最大邊際相關性 (MMR) ---")
 query_vector_store(
     "chroma_db_with_metadata",
     query,
@@ -74,11 +74,11 @@ query_vector_store(
     {"k": 3, "fetch_k": 20, "lambda_mult": 0.5},
 )
 
-# 3. Similarity Score Threshold
-# This method retrieves documents that exceed a certain similarity score threshold.
-# 'score_threshold' sets the minimum similarity score a document must have to be considered relevant.
-# Use this when you want to ensure that only highly relevant documents are retrieved, filtering out less relevant ones.
-print("\n--- Using Similarity Score Threshold ---")
+# 3. 相似度分數閾值
+# 此方法檢索超過某個相似度分數閾值的文件。
+# 'score_threshold' 設定文件必須達到的最低相似度分數才能被視為相關。
+# 當您想要確保只檢索高度相關的文件，過濾掉較不相關的文件時使用此方法。
+print("\n--- 使用相似度分數閾值 ---")
 query_vector_store(
     "chroma_db_with_metadata",
     query,
@@ -87,4 +87,4 @@ query_vector_store(
     {"k": 3, "score_threshold": 0.1},
 )
 
-print("Querying demonstrations with different search types completed.")
+print("使用不同搜尋類型的查詢示範已完成。")

@@ -1,5 +1,7 @@
 # 🚀 Python x LangChain 實作生成式AI
 
+> [有經驗開發者的學習建議](./學習建議.md)
+
 > **讓 AI 開發變得簡單而強大** - 從零開始學習 LangChain，打造專業級 AI 應用
 
 大型語言模型的應用範圍非常廣泛，從虛擬助理到AI聊天機器人，再到AI搜索引擎和文本內容編輯器。這些應用在各行各業中發揮著重要作用，大大地提升了自動化和AI化的水準，實具有革命性意義，成為現代科技不可或缺的一部分。
@@ -30,7 +32,7 @@
 | 章節 | 主題 | 功能說明 | 學習重點 |
 |------|------|----------|----------|
 | **第6章** | [連結Chains](./3_chains/) | ⛓️ 工作流程串接 | 將多個AI元件串聯成自動化流程 |
-| **第7章** | [RAG (Retrieval-Augmented Generation)](./4_rag) | 🔍 檢索增強生成 | 結合外部資料庫的智能問答系統 |
+| **第7章** | [RAG (Retrieval-Augmented Generation)](./4_rag) | 🔍 檢索增強生成 | 向量資料庫、文本分割、Embedding模型、檢索策略、對話式RAG、網頁爬取整合 |
 | **第8章(待完善)** | [Agents & Tools](./5_agents_and_tools) | 🛠️ 智能代理與工具 | 讓AI自主使用工具和做出決策 |
 
 ### 🎯 實戰應用
@@ -79,7 +81,7 @@
 
 ### 🎥 教學影片
 - [LangChain 基礎教學](https://youtu.be/yF9kGESAi3M?si=yfU54HMUf9yrm0kW)
-- [AI 應用開發實戰](https://github.com/roberthsu2003/gradio)
+- [AI介面-gradio](https://github.com/roberthsu2003/gradio)
 
 ### 💡 社群支援
 - [GitHub Issues](https://github.com/langchain-ai/langchain)

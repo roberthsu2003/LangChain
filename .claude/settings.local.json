@@ -7,7 +7,9 @@
       "Bash(source:*)",
       "Bash(uv pip:*)",
       "Bash(uv run:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(grep:*)",
+      "Bash(markdownlint:*)"
     ],
     "deny": [],
     "ask": []

@@ -129,7 +129,7 @@ from pathlib import Path
 
 
 # 載入文檔
-loader = TextLoader("books/三國演義.txt")
+loader = TextLoader("books/智慧型手機使用手冊.txt")
 documents = loader.load()
 
 # 分割文檔
@@ -156,8 +156,8 @@ else:
     db = Chroma.from_documents(docs, embeddings, persist_directory=db_path)
     print("建立新資料庫")
 
-# 查詢與「劉備」最相似的 3 個文本區塊
-results = db.similarity_search("劉備", k=3)
+# 查詢與「相機功能」最相似的 3 個文本區塊
+results = db.similarity_search("相機功能", k=3)
 print(results)
 ```
 
@@ -223,10 +223,10 @@ db = Chroma(
 ## 📦 資源與數據
 
 ### books/ 目錄
-包含教學用的繁體中文書籍文本：
-- 古典文學：三國演義、水滸傳、紅樓夢、西遊記
-- AI 主題：人工智慧發展史、機器學習基礎、深度學習簡介、自然語言處理概述
-- 技術文檔：LangChain 介紹、向量資料庫介紹
+包含教學用的繁體中文使用手冊文本：
+- 家電類：智慧型手機使用手冊、洗衣機使用說明、冷氣機安裝維護手冊、路由器設定手冊
+- 交通類：電動機車使用手冊
+- 生活類：信用卡權益說明、健保就醫指南、租屋契約範本與說明
 
 ### db/ 目錄
 自動生成的向量資料庫存儲位置（執行範例後會自動建立）
@@ -244,8 +244,7 @@ db = Chroma(
 
 **Step 2: 實用應用**
 4. 📓 [6_one_off_question.ipynb](6_one_off_question.ipynb) - 建立第一個問答系統
-5. 📦 完成 `chroma/` 目錄的基礎練習
-6. 🚀 嘗試 `csv_to_chroma1` 充電站範例
+5. 📓 [7_conversational_rag.ipynb](7_conversational_rag.ipynb) - 對話式 RAG 系統
 
 **Step 3: 進階學習 (選學)**
 7. 📓 [4_embedding_comparison.ipynb](4_embedding_comparison.ipynb) - 比較不同 Embedding 模型
@@ -274,17 +273,21 @@ db = Chroma(
 
 ### 💼 實戰專案路線
 
-1. **酒店評分系統** (`chroma/csv_to_chroma2/`) - 大量數據處理與情感分析
-2. **充電站推薦** (`chroma/csv_to_chroma1/`) - 地理位置查詢與推薦
-3. **網頁知識庫** - 使用 Notebook 8 + Firecrawl 建立動態網頁 RAG
-4. **自訂領域 RAG** - 應用到自己的專案
+**應用 Notebook 1-8 建立自己的 RAG 系統**
 
-**學習時間**: 約 10-15 小時
+1. **文檔問答系統** - 使用 Notebook 1-6 建立公司內部文檔查詢系統
+2. **知識庫機器人** - 使用 Notebook 7 建立多輪對話知識助手
+3. **網頁內容分析** - 使用 Notebook 8 + Firecrawl 爬取並分析網頁內容
+4. **多模型比較** - 使用 Notebook 4 比較不同 Embedding 模型效果
+5. **自訂領域 RAG** - 整合到自己的專案中
+
+**學習時間**: 約 8-12 小時
 
 **專案建議**:
 - 使用 Notebook 1-8 作為基礎範本
-- 根據需求選擇合適的 Embedding 模型和檢索策略
-- 從簡單的單次問答開始,逐步擴展到對話式系統
+- 根據需求選擇合適的 Embedding 模型(Notebook 4)和檢索策略(Notebook 5)
+- 從簡單的單次問答(Notebook 6)開始,逐步擴展到對話式系統(Notebook 7)
+- 善用 books/ 資料夾的範例文本進行測試
 
 ---
 

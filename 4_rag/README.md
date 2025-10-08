@@ -31,30 +31,27 @@
 | 1. RAG 基礎入門 | ⭐ | 建立 + 查詢向量資料庫 | [1_rag_basics.ipynb](1_rag_basics.ipynb) | 理解向量資料庫的建立與檢索 |
 | 2. 多檔案與元數據 | ⭐⭐ | 多檔案處理 + 元數據過濾 | [2_rag_basics_metadata.ipynb](2_rag_basics_metadata.ipynb) | 學習處理多來源文件 |
 | 3. 文本分割策略 | ⭐⭐⭐ | 5種分割策略比較 | [3_text_splitting.ipynb](3_text_splitting.ipynb) | 理解分割對檢索的影響 |
+| 4. Embedding 模型比較 | ⭐⭐⭐ | 4種 Embedding 模型 | [4_embedding_comparison.ipynb](4_embedding_comparison.ipynb) | 選擇最適合的嵌入模型 |
+| 5. 檢索器策略 | ⭐⭐⭐⭐ | Similarity、MMR、Threshold | [5_retriever_strategies.ipynb](5_retriever_strategies.ipynb) | 掌握進階檢索技術 |
 | 6. 單次問答系統 | ⭐⭐⭐⭐ | 檢索 + RAG Chain | [6_one_off_question.ipynb](6_one_off_question.ipynb) | 建立完整問答系統 |
 | 7. 對話式 RAG | ⭐⭐⭐⭐⭐ | 載入 + 對話鏈 | [7_conversational_rag.ipynb](7_conversational_rag.ipynb) | 實作多輪對話系統 |
+| 8. 網頁爬取 RAG | ⭐⭐⭐⭐ | WebBaseLoader + RAG | [8_web_scraping.ipynb](8_web_scraping.ipynb) | 整合網頁內容到 RAG |
 
 **每個 Notebook 包含兩個儲存格：**
 - 📦 **第1格**：建立/載入向量資料庫
 - 🔗 **第2格**：LangChain 實際應用
 
+**每個 Notebook 都有配套的說明和程式碼註解，讓學生能夠邊學邊做。**
+
 ---
 
-### 🐍 Python 完整範例（進階學習）
+### 🔧 進階 Python 範例（選學）
 
 | 範例 | 難度 | 核心技術 | 檔案 | 主要用途 |
 |------|------|----------|------|----------|
-| 1a. RAG 基礎 | ⭐ | 文檔載入、向量存儲 | [1a_rag_basics.py](1a_rag_basics.py) | 建立第一個 RAG 系統 |
-| 1b. RAG 查詢 | ⭐ | 向量檢索、查詢 | [1b_rag_basics.py](1b_rag_basics.py) | 使用向量存儲查詢 |
-| 2a. 元數據 RAG | ⭐⭐ | 元數據過濾 | [2a_rag_basics_metadata.py](2a_rag_basics_metadata.py) | 多檔案向量存儲 |
-| 2b. 元數據查詢 | ⭐⭐ | 元數據過濾查詢 | [2b_rag_basics_metadata.py](2b_rag_basics_metadata.py) | 按來源過濾檢索 |
-| 3. 文本分割 | ⭐⭐⭐ | 5種分割策略 | [3_rag_text_splitting_deep_dive.py](3_rag_text_splitting_deep_dive.py) | 優化文檔切割 |
-| 4. 嵌入深入 | ⭐⭐⭐ | 多種 Embedding 模型 | [4_rag_embedding_deep_dive.py](4_rag_embedding_deep_dive.py) | 選擇最佳嵌入模型 |
-| 5. 檢索器 | ⭐⭐⭐⭐ | 相似度、MMR、閾值 | [5_rag_retriever_deep_dive.py](5_rag_retriever_deep_dive.py) | 進階檢索技術 |
-| 6. 單次問答 | ⭐⭐⭐⭐ | RAG Chain | [6_rag_one_off_question.py](6_rag_one_off_question.py) | 完整問答系統 |
-| 7. 對話式 RAG | ⭐⭐⭐⭐⭐ | 對話記憶、上下文 | [7_rag_conversational.py](7_rag_conversational.py) | 多輪對話 RAG |
-| 8a. 網頁爬取基礎 | ⭐⭐⭐ | WebBaseLoader | [8_rag_web_scrape_basic.py](8_rag_web_scrape_basic.py) | 網頁內容 RAG |
-| 8b. Firecrawl | ⭐⭐⭐⭐ | Firecrawl API | [8_rag_web_scrape_firecrawl.py](8_rag_web_scrape_firecrawl.py) | 進階網頁爬取 |
+| Firecrawl 爬取 | ⭐⭐⭐⭐ | Firecrawl API | [8_rag_web_scrape_firecrawl.py](8_rag_web_scrape_firecrawl.py) | 進階網頁爬取與動態內容處理 |
+
+💡 **說明**: 此 Python 範例展示如何使用 Firecrawl 處理需要 JavaScript 渲染的動態網頁，是 Notebook 8 的進階擴展。
 
 ---
 
@@ -184,58 +181,6 @@ retriever = db.as_retriever(search_type="similarity", search_kwargs={"k": 3})
 
 ---
 
-## 📖 Chroma 向量資料庫實作
-
-### 基礎概念
-- 開源的免費資料庫
-- 專門給 LLM 使用的資料庫
-- 可儲存在記憶體、本機，也可以在雲端
-
-### 實作範例
-
-#### 1. [Chroma 基礎操作](chroma/)
-- 初始設定與基本操作
-- Collection 的建立、取得和刪除
-- 句子向量資料建立
-- 向量資料儲存（使用 HuggingFace API 和 Chroma API）
-
-#### 2. [充電站資料查詢](chroma/csv_to_chroma1/)
-- CSV 資料匯入 Chroma
-- 地理位置元數據儲存
-- 自然語言查詢充電站資訊
-- 基於距離的充電站推薦
-
-**範例功能**：
-```python
-# 自然語言查詢
-query_text = "永康二站在什麼地方?"
-result = charging_station.query(query_texts=[query_text], n_results=3)
-
-# 地理位置計算
-from geopy.distance import geodesic
-user_location = (25.0478, 121.5171)  # 台北車站
-# 計算最近的充電站
-```
-
-#### 3. [酒店評分分析](chroma/csv_to_chroma2/)
-- 大量數據處理（約 8000 筆酒店評論）
-- 使用 Sentence Transformers 進行向量化
-- 情感分析（好評/差評）
-- 元數據過濾查詢
-
-**範例功能**：
-```python
-# 查詢包含特定關鍵字的評論
-query_text = '門童和服務生都非常熱情'
-embedding = model.encode(query_text).tolist()
-hotel_info.query(
-    query_embeddings=[embedding],
-    n_results=10,
-    where_document={'$contains':"門童"}  # document內一定要有包含門童
-)
-```
-
----
 
 ## ❓ 常見問題速答
 
@@ -292,31 +237,38 @@ db = Chroma(
 
 ### 🎓 初學者路線（推薦使用 Jupyter Notebook）
 
-**Step 1: 基礎入門**
+**Step 1: 基礎入門 (必學)**
 1. 📓 [1_rag_basics.ipynb](1_rag_basics.ipynb) - 理解向量資料庫基本概念
 2. 📓 [2_rag_basics_metadata.ipynb](2_rag_basics_metadata.ipynb) - 學習處理多檔案
+3. 📓 [3_text_splitting.ipynb](3_text_splitting.ipynb) - 理解文本分割策略
 
 **Step 2: 實用應用**
-3. 📓 [6_one_off_question.ipynb](6_one_off_question.ipynb) - 建立第一個問答系統
-4. 📦 完成 `chroma/` 目錄的基礎練習
-5. 🚀 嘗試 `csv_to_chroma1` 充電站範例
+4. 📓 [6_one_off_question.ipynb](6_one_off_question.ipynb) - 建立第一個問答系統
+5. 📦 完成 `chroma/` 目錄的基礎練習
+6. 🚀 嘗試 `csv_to_chroma1` 充電站範例
 
-**學習時間**: 約 3-5 小時
+**Step 3: 進階學習 (選學)**
+7. 📓 [4_embedding_comparison.ipynb](4_embedding_comparison.ipynb) - 比較不同 Embedding 模型
+8. 📓 [5_retriever_strategies.ipynb](5_retriever_strategies.ipynb) - 學習檢索策略
+9. 📓 [8_web_scraping.ipynb](8_web_scraping.ipynb) - 網頁內容整合
+
+**學習時間**: 約 4-6 小時
 
 ---
 
 ### 🚀 進階開發者路線
 
-**Python 深入學習**
-1. 🐍 `3_rag_text_splitting_deep_dive.py` - 理解文本分割策略
-2. 🐍 `4_rag_embedding_deep_dive.py` - 比較不同 Embedding 模型
-3. 🐍 `5_rag_retriever_deep_dive.py` - 掌握進階檢索技術
+**Notebook 完整學習**
+1. 📓 依序完成 1-8 所有 Notebook
+2. 📓 深入理解每個 Notebook 的程式碼實作
+3. 📓 重點學習 [7_conversational_rag.ipynb](7_conversational_rag.ipynb) - 實作對話系統
 
-**Notebook 進階應用**
-4. 📓 [3_text_splitting.ipynb](3_text_splitting.ipynb) - 比較分割策略效果
-5. 📓 [7_conversational_rag.ipynb](7_conversational_rag.ipynb) - 實作對話系統
+**進階擴展**
+4. 🐍 研究 `8_rag_web_scrape_firecrawl.py` - 動態網頁爬取
+5. 🔨 將 Notebook 範例改寫為生產環境的 Python 模組
+6. 📦 整合到自己的專案中
 
-**學習時間**: 約 5-8 小時
+**學習時間**: 約 6-10 小時
 
 ---
 
@@ -324,19 +276,25 @@ db = Chroma(
 
 1. **酒店評分系統** (`chroma/csv_to_chroma2/`) - 大量數據處理與情感分析
 2. **充電站推薦** (`chroma/csv_to_chroma1/`) - 地理位置查詢與推薦
-3. **網頁知識庫** (`8_rag_web_scrape_*`) - 網頁爬取與 RAG 整合
+3. **網頁知識庫** - 使用 Notebook 8 + Firecrawl 建立動態網頁 RAG
 4. **自訂領域 RAG** - 應用到自己的專案
 
 **學習時間**: 約 10-15 小時
+
+**專案建議**:
+- 使用 Notebook 1-8 作為基礎範本
+- 根據需求選擇合適的 Embedding 模型和檢索策略
+- 從簡單的單次問答開始,逐步擴展到對話式系統
 
 ---
 
 ### 📚 學習建議
 
-- ✅ **Jupyter Notebook** 適合互動式學習和快速實驗
-- ✅ **Python 檔案** 適合深入理解和生產環境部署
-- ✅ 建議先使用 Notebook 學習概念，再用 Python 檔案深入研究
-- ✅ 每個 Notebook 都可以獨立運行，不會與 Python 檔案衝突
+- ✅ **優先使用 Jupyter Notebook** - 所有核心概念都已涵蓋(1-8)
+- ✅ **互動式學習** - 每個 Notebook 都可以邊學邊執行,立即看到結果
+- ✅ **循序漸進** - 按照編號順序學習,從基礎到進階
+- ✅ **實作優先** - 先動手做,再深入理解原理
+- ✅ **Firecrawl 選學** - 如需處理動態網頁,可參考進階 Python 範例
 
 ---
 

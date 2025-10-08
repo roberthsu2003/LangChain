@@ -20,6 +20,8 @@
 
 ---
 
+## [了解向量資料庫和嵌入式模型](4_rag/向量資料庫與嵌入模型.md)
+
 ## 🗺️ RAG 教學範例速覽
 
 ### 基礎教學系列
@@ -50,6 +52,58 @@ pip install langchain langchain-community langchain-huggingface chromadb sentenc
 # 設定環境變數（如需要）
 echo "HUGGINGFACE_API_KEY=your_api_key" > .env
 ```
+
+### 2. 尋找適合繁體中文的嵌入模型(embedding model)
+
+#### 模型比較
+
+**intfloat/multilingual-e5-large**
+- 參數量: 560M (24層)
+- Embedding 維度: 1024
+- 最大序列長度: 512 tokens
+- 語言支援: 100+ 語言
+- 特點: 微軟開發,在多語言基準測試上表現優異
+
+**jinaai/jina-embeddings-v2-base-zh**
+- 參數量: 161M (更輕量)
+- Embedding 維度: 768
+- 最大序列長度: **8192 tokens** ⭐
+- 語言支援: 中英雙語專門優化
+- 特點: 專門為中英混合輸入訓練,減少語言偏差
+
+#### 推薦建議
+
+**主要處理繁體中文內容,推薦使用 `jina-embeddings-v2-base-zh`**,原因如下:
+
+1. **中文性能優異** - 在同等體積的中文模型中,Jina Embeddings 在所有涉及中文的類別中都表現優於 E5 Multilingual
+
+2. **長文本支援** - 8K token 長度對於處理長文檔、法律文件、技術文檔等非常有用,而 E5 只支援 512 tokens
+
+3. **中英混合優化** - 專門為中英混合輸入訓練,無語言偏差,適合台灣繁體中文使用場景
+
+4. **輕量高效** - 模型更小(161M vs 560M),推理速度更快,部署成本更低
+
+**選擇 multilingual-e5-large 的情況:**
+- 需要處理多種語言(不只是中英文)
+- 需要更大的 embedding 維度(1024 vs 768)
+- 文檔都很短(<512 tokens)
+
+**使用範例:**
+```python
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer(
+    "jinaai/jina-embeddings-v2-base-zh",
+    trust_remote_code=True
+)
+model.max_seq_length = 8192  # 可調整
+
+embeddings = model.encode([
+    '這是一段繁體中文測試',
+    'This is an English test'
+])
+```
+
 
 ### 2. 第一個 RAG 系統
 ```python

@@ -238,15 +238,18 @@ db = Chroma(
 ### 🎓 初學者路線（推薦使用 Jupyter Notebook）
 
 **Step 1: 基礎入門 (必學)**
+
 1. 📓 [1_rag_basics.ipynb](1_rag_basics.ipynb) - 理解向量資料庫基本概念
 2. 📓 [2_rag_basics_metadata.ipynb](2_rag_basics_metadata.ipynb) - 學習處理多檔案
 3. 📓 [3_text_splitting.ipynb](3_text_splitting.ipynb) - 理解文本分割策略
 
 **Step 2: 實用應用**
+
 4. 📓 [6_one_off_question.ipynb](6_one_off_question.ipynb) - 建立第一個問答系統
 5. 📓 [7_conversational_rag.ipynb](7_conversational_rag.ipynb) - 對話式 RAG 系統
 
 **Step 3: 進階學習 (選學)**
+
 7. 📓 [4_embedding_comparison.ipynb](4_embedding_comparison.ipynb) - 比較不同 Embedding 模型
 8. 📓 [5_retriever_strategies.ipynb](5_retriever_strategies.ipynb) - 學習檢索策略
 9. 📓 [8_web_scraping.ipynb](8_web_scraping.ipynb) - 網頁內容整合
@@ -258,11 +261,13 @@ db = Chroma(
 ### 🚀 進階開發者路線
 
 **Notebook 完整學習**
+
 1. 📓 依序完成 1-8 所有 Notebook
 2. 📓 深入理解每個 Notebook 的程式碼實作
 3. 📓 重點學習 [7_conversational_rag.ipynb](7_conversational_rag.ipynb) - 實作對話系統
 
 **進階擴展**
+
 4. 🐍 研究 `8_rag_web_scrape_firecrawl.py` - 動態網頁爬取
 5. 🔨 將 Notebook 範例改寫為生產環境的 Python 模組
 6. 📦 整合到自己的專案中

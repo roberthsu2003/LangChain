@@ -6,7 +6,8 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_community.vectorstores import Chroma
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain_ollama import ChatOllama
+from langchain_community.embeddings import HuggingFaceEmbeddings
 
 # 從 .env 載入環境變數
 load_dotenv()
@@ -29,8 +30,8 @@ retriever = db.as_retriever(
     search_kwargs={"k": 3},
 )
 
-# 建立 ChatOpenAI 模型
-llm = ChatOpenAI(model="gpt-4o")
+# 建立 ChatOllama 模型
+llm = ChatOllama(model="llama3.2")
 
 # 情境化問題提示
 # 此系統提示幫助 AI 理解應根據聊天歷史重新表述問題

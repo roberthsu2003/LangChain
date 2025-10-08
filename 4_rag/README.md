@@ -24,7 +24,23 @@
 
 ## 🗺️ RAG 教學範例速覽
 
-### 基礎教學系列
+### 📓 Jupyter Notebook 互動式教學（推薦學生使用）
+
+| Notebook | 難度 | 核心內容 | 檔案 | 學習目標 |
+|----------|------|----------|------|----------|
+| 1. RAG 基礎入門 | ⭐ | 建立 + 查詢向量資料庫 | [1_rag_basics.ipynb](1_rag_basics.ipynb) | 理解向量資料庫的建立與檢索 |
+| 2. 多檔案與元數據 | ⭐⭐ | 多檔案處理 + 元數據過濾 | [2_rag_basics_metadata.ipynb](2_rag_basics_metadata.ipynb) | 學習處理多來源文件 |
+| 3. 文本分割策略 | ⭐⭐⭐ | 5種分割策略比較 | [3_text_splitting.ipynb](3_text_splitting.ipynb) | 理解分割對檢索的影響 |
+| 6. 單次問答系統 | ⭐⭐⭐⭐ | 檢索 + RAG Chain | [6_one_off_question.ipynb](6_one_off_question.ipynb) | 建立完整問答系統 |
+| 7. 對話式 RAG | ⭐⭐⭐⭐⭐ | 載入 + 對話鏈 | [7_conversational_rag.ipynb](7_conversational_rag.ipynb) | 實作多輪對話系統 |
+
+**每個 Notebook 包含兩個儲存格：**
+- 📦 **第1格**：建立/載入向量資料庫
+- 🔗 **第2格**：LangChain 實際應用
+
+---
+
+### 🐍 Python 完整範例（進階學習）
 
 | 範例 | 難度 | 核心技術 | 檔案 | 主要用途 |
 |------|------|----------|------|----------|
@@ -108,26 +124,44 @@ embeddings = model.encode([
 ### 2. 第一個 RAG 系統
 ```python
 from langchain_community.document_loaders import TextLoader
-from langchain.text_splitter import CharacterTextSplitter
+from langchain_text_splitters import CharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import HuggingFaceEmbeddings
+import os
+from pathlib import Path
+
 
 # 載入文檔
 loader = TextLoader("books/三國演義.txt")
 documents = loader.load()
 
 # 分割文檔
-text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
-docs = text_splitter.split_documents(documents)
+# chunk_size=1000: 每個文本區塊最多 1000 個字元，避免超過模型限制
+# chunk_overlap=200: 區塊之間重疊 200 個字元，防止重要資訊在分割時被切斷
+text_spliter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+docs = text_spliter.split_documents(documents)
 
-# 建立向量存儲
+# 使用 HuggingFace 的中文 embedding 模型
 embeddings = HuggingFaceEmbeddings(
-    model_name="jinaai/jina-embeddings-v2-base-zh"
+    model_name = 'jinaai/jina-embeddings-v2-base-zh'
 )
-db = Chroma.from_documents(docs, embeddings, persist_directory="./db")
 
-# 查詢
+# 設定向量資料庫路徑（使用絕對路徑避免權限問題）
+db_path = os.path.abspath("./db")
+
+# 檢查資料庫是否已存在，避免每次都重建
+if Path(db_path).exists():
+    # 資料庫已存在，直接載入
+    db = Chroma(persist_directory=db_path, embedding_function=embeddings)
+    print("載入現有資料庫")
+else:
+    # 資料庫不存在，建立新的向量資料庫
+    db = Chroma.from_documents(docs, embeddings, persist_directory=db_path)
+    print("建立新資料庫")
+
+# 查詢與「劉備」最相似的 3 個文本區塊
 results = db.similarity_search("劉備", k=3)
+print(results)
 ```
 
 ### 3. 理解 RAG 關鍵組件
@@ -256,20 +290,53 @@ db = Chroma(
 
 ## 🎯 學習路徑建議
 
-### 初學者路線
-1. 從 `1a_rag_basics.py` 開始，理解基本概念
-2. 完成 `chroma/` 目錄的基礎練習
-3. 嘗試 `csv_to_chroma1` 充電站範例
+### 🎓 初學者路線（推薦使用 Jupyter Notebook）
 
-### 進階開發者路線
-1. 深入 `3_rag_text_splitting_deep_dive.py` 理解文本分割策略
-2. 研究 `5_rag_retriever_deep_dive.py` 掌握檢索技術
-3. 挑戰 `7_rag_conversational.py` 實作對話系統
+**Step 1: 基礎入門**
+1. 📓 [1_rag_basics.ipynb](1_rag_basics.ipynb) - 理解向量資料庫基本概念
+2. 📓 [2_rag_basics_metadata.ipynb](2_rag_basics_metadata.ipynb) - 學習處理多檔案
 
-### 實戰專案
-1. 酒店評分系統 (`csv_to_chroma2`)
-2. 網頁知識庫 (`8_rag_web_scrape_*`)
-3. 自訂領域的 RAG 應用
+**Step 2: 實用應用**
+3. 📓 [6_one_off_question.ipynb](6_one_off_question.ipynb) - 建立第一個問答系統
+4. 📦 完成 `chroma/` 目錄的基礎練習
+5. 🚀 嘗試 `csv_to_chroma1` 充電站範例
+
+**學習時間**: 約 3-5 小時
+
+---
+
+### 🚀 進階開發者路線
+
+**Python 深入學習**
+1. 🐍 `3_rag_text_splitting_deep_dive.py` - 理解文本分割策略
+2. 🐍 `4_rag_embedding_deep_dive.py` - 比較不同 Embedding 模型
+3. 🐍 `5_rag_retriever_deep_dive.py` - 掌握進階檢索技術
+
+**Notebook 進階應用**
+4. 📓 [3_text_splitting.ipynb](3_text_splitting.ipynb) - 比較分割策略效果
+5. 📓 [7_conversational_rag.ipynb](7_conversational_rag.ipynb) - 實作對話系統
+
+**學習時間**: 約 5-8 小時
+
+---
+
+### 💼 實戰專案路線
+
+1. **酒店評分系統** (`chroma/csv_to_chroma2/`) - 大量數據處理與情感分析
+2. **充電站推薦** (`chroma/csv_to_chroma1/`) - 地理位置查詢與推薦
+3. **網頁知識庫** (`8_rag_web_scrape_*`) - 網頁爬取與 RAG 整合
+4. **自訂領域 RAG** - 應用到自己的專案
+
+**學習時間**: 約 10-15 小時
+
+---
+
+### 📚 學習建議
+
+- ✅ **Jupyter Notebook** 適合互動式學習和快速實驗
+- ✅ **Python 檔案** 適合深入理解和生產環境部署
+- ✅ 建議先使用 Notebook 學習概念，再用 Python 檔案深入研究
+- ✅ 每個 Notebook 都可以獨立運行，不會與 Python 檔案衝突
 
 ---
 

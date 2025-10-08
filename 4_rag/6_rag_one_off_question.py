@@ -3,7 +3,8 @@ import os
 from dotenv import load_dotenv
 from langchain_community.vectorstores import Chroma
 from langchain_core.messages import HumanMessage, SystemMessage
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain_ollama import ChatOllama
+from langchain_community.embeddings import HuggingFaceEmbeddings
 
 # 從 .env 載入環境變數
 load_dotenv()
@@ -44,8 +45,8 @@ combined_input = (
     + "\n\n請僅根據提供的文件提供答案。如果在文件中找不到答案，請回覆「我不確定」。"
 )
 
-# 建立 ChatOpenAI 模型
-model = ChatOpenAI(model="gpt-4o")
+# 建立 ChatOllama 模型
+model = ChatOllama(model="llama3.2")
 
 # 定義模型的訊息
 messages = [

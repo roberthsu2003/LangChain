@@ -27,8 +27,8 @@ loader = TextLoader(file_path)
 documents = loader.load()
 
 # 定義嵌入模型
-embeddings = OpenAIEmbeddings(
-    model="text-embedding-3-small"
+embeddings = HuggingFaceEmbeddings(
+    model_name="jinaai/jina-embeddings-v2-base-zh"
 )  # 如需要，請更新為有效的嵌入模型
 
 
@@ -71,7 +71,7 @@ token_docs = token_splitter.split_documents(documents)
 create_vector_store(token_docs, "chroma_db_token")
 
 # 4. 遞迴基於字符的分割
-# 嘗試在字符限制內的自然邊界（句子、段落）處分割文本。
+# 嘗試在字���限制內的自然邊界（句子、段落）處分割文本。
 # 在保持連貫性和遵守字符限制之間取得平衡。
 print("\n--- 使用遞迴基於字符的分割 ---")
 rec_char_splitter = RecursiveCharacterTextSplitter(

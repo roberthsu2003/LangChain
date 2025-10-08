@@ -257,15 +257,15 @@ db = Chroma(
 
 ### 🚀 進階開發者路線
 
-**Notebook 完整學習**
-1. 📓 依序完成 1-8 所有 Notebook
-2. 📓 深入理解每個 Notebook 的程式碼實作
+**Notebook 完整學習** 
+1. 📓 依序完成 1-8 所有 Notebook 
+2. 📓 深入理解每個 Notebook 的程式碼實作 
 3. 📓 重點學習 [7_conversational_rag.ipynb](7_conversational_rag.ipynb) - 實作對話系統
 
 **進階擴展**
-4. 🐍 研究 `8_rag_web_scrape_firecrawl.py` - 動態網頁爬取
-5. 🔨 將 Notebook 範例改寫為生產環境的 Python 模組
-6. 📦 整合到自己的專案中
+4. 🐍 研究 `8_rag_web_scrape_firecrawl.py` - 動態網頁爬取 
+5. 🔨 將 Notebook 範例改寫為生產環境的 Python 模組 
+6. 📦 整合到自己的專案中 
 
 **學習時間**: 約 6-10 小時
 

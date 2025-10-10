@@ -60,6 +60,65 @@
 
 ---
 
+### 🎯 實戰案例（Gradio 介面）
+
+| 案例 | 難度 | 核心技術 | 檔案 | 應用場景 |
+|------|------|----------|------|----------|
+| 案例 1：智慧文檔問答系統 | ⭐⭐⭐⭐ | Chroma + RAG Chain + Metadata 過濾 | [case1_smart_document_qa_system.py](case1_smart_document_qa_system.py) | 企業知識庫、客服系統、技術文檔查詢 |
+| 案例 2：多文檔智能比較系統 | ⭐⭐⭐⭐⭐ | 並行檢索 + RunnableParallel + RAG | [case2_document_comparison_system.py](case2_document_comparison_system.py) | 產品比較、合約分析、政策對照 |
+
+**案例特色**：
+- 🖥️ **完整 Gradio 介面**：可直接運行的 Web 應用
+- 📚 **使用真實資料**：基於 books/ 資料夾的 8 本使用手冊
+- 🎨 **專業設計**：包含範例問題、進階設定、結果格式化
+- 💡 **AI 輔助提示**：每個案例都附有 AI 輔助開發提示
+- 📖 **詳細註解**：完整的程式碼說明和技術解析
+
+**運行方式**：
+```bash
+# 啟用 langchain 環境
+conda activate langchain
+
+# 案例 1：智慧文檔問答系統（Port 7860）
+cd 4_rag
+python case1_smart_document_qa_system.py
+# 或使用快速腳本
+./run_case1.sh
+
+# 案例 2：多文檔智能比較系統（Port 7861）
+python case2_document_comparison_system.py
+# 或使用快速腳本
+./run_case2.sh
+```
+
+📖 **[完整案例使用說明文檔](RAG_實戰案例使用說明.md)**
+
+---
+
+### 📝 學習測驗
+
+**[📋 RAG 章節測驗 - 10 題精選](quiz_rag.md)**
+
+測驗涵蓋：
+- ✅ RAG 基礎概念與優勢
+- ✅ 向量資料庫操作（Chroma）
+- ✅ Embedding 模型選擇
+- ✅ 文本分割策略
+- ✅ 檢索策略（Similarity、MMR、Threshold）
+- ✅ Metadata 過濾應用
+- ✅ RAG Chain 架構
+- ✅ 對話式 RAG
+- ✅ 網頁爬取整合
+- ✅ 實際應用場景分析
+
+**學習建議**：
+1. 完成所有 Notebook（1-8）後進行測驗
+2. 運行兩個實戰案例，理解實際應用
+3. 根據測驗結果調整學習重點
+4. 分數 7 分以下建議重新複習相關章節
+
+---
+
 ## 🚀 5 分鐘快速開始
 
 ### 1. 環境設定

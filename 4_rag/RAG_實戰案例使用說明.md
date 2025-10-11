@@ -8,7 +8,6 @@
 
 ### 案例 1：智慧文檔問答系統
 **檔案**：`case1_smart_document_qa_system.py`  
-**Port**：7860  
 **難度**：⭐⭐⭐⭐
 
 **功能特色**：
@@ -27,8 +26,7 @@
 ---
 
 ### 案例 2：多文檔智能比較系統
-**檔案**：`case2_document_comparison_system.py`  
-**Port**：7861  
+**檔案**：`case2_document_comparison_system.py`   
 **難度**：⭐⭐⭐⭐⭐
 
 **功能特色**：
@@ -48,22 +46,16 @@
 
 ## 🚀 快速開始
 
-### 方法 1：使用執行腳本（推薦）
-
-```bash
-# 案例 1
-cd 4_rag
-./run_case1.sh
-
-# 案例 2
-./run_case2.sh
-```
-
-### 方法 2：手動執行
+### 方法：手動執行
 
 ```bash
 # 1. 啟用 langchain 環境
-conda activate langchain
+## mac
+source .venv/bash/activate
+
+## window
+.venv\Script\activate
+
 
 # 2. 進入資料夾
 cd 4_rag
@@ -351,16 +343,4 @@ Ollama LLM
 - [向量資料庫與嵌入模型](向量資料庫與嵌入模型.md) - 深入理解技術原理
 - Jupyter Notebooks（1-8） - 循序漸進學習
 
----
-
-## 🤝 貢獻與回饋
-
-如果您在使用過程中遇到問題或有改善建議，歡迎：
-- 提交 Issue
-- 提出改善建議
-- 分享使用心得
-
----
-
-**祝您學習愉快！💪**
 

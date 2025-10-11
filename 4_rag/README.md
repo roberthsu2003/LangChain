@@ -77,18 +77,18 @@
 **運行方式**：
 ```bash
 # 啟用 langchain 環境
-conda activate langchain
+## mac
+source .venv/bash/activate
+
+## window
+.venv\Script\activate
 
 # 案例 1：智慧文檔問答系統（Port 7860）
 cd 4_rag
 python case1_smart_document_qa_system.py
-# 或使用快速腳本
-./run_case1.sh
 
 # 案例 2：多文檔智能比較系統（Port 7861）
 python case2_document_comparison_system.py
-# 或使用快速腳本
-./run_case2.sh
 ```
 
 📖 **[完整案例使用說明文檔](RAG_實戰案例使用說明.md)**

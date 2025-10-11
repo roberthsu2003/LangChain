@@ -1,6 +1,6 @@
-# Docs: https://python.langchain.com/v0.1/docs/modules/tools/custom_tools/
+# 文檔: https://python.langchain.com/v0.1/docs/modules/tools/custom_tools/
 
-# Import necessary libraries
+# 匯入必要的函式庫
 import os
 from typing import Type
 
@@ -14,43 +14,43 @@ from langchain_openai import ChatOpenAI
 
 load_dotenv()
 
-# Pydantic models for tool arguments
+# 工具參數的 Pydantic 模型
 
 
 class SimpleSearchInput(BaseModel):
-    query: str = Field(description="should be a search query")
+    query: str = Field(description="應該是一個搜尋查詢")
 
 
 class MultiplyNumbersArgs(BaseModel):
-    x: float = Field(description="First number to multiply")
-    y: float = Field(description="Second number to multiply")
+    x: float = Field(description="要相乘的第一個數字")
+    y: float = Field(description="要相乘的第二個數字")
 
 
-# Custom tool with only custom input
+# 只有自訂輸入的自訂工具
 
 
 class SimpleSearchTool(BaseTool):
     name = "simple_search"
-    description = "useful for when you need to answer questions about current events"
+    description = "當你需要回答有關時事的問題時使用"
     args_schema: Type[BaseModel] = SimpleSearchInput
 
     def _run(
         self,
         query: str,
     ) -> str:
-        """Use the tool."""
+        """使用工具"""
         from tavily import TavilyClient
 
         api_key = os.getenv("TAVILY_API_KEY")
         client = TavilyClient(api_key=api_key)
         results = client.search(query=query)
-        return f"Search results for: {query}\n\n\n{results}\n"
+        return f"搜尋結果：{query}\n\n\n{results}\n"
 
 
-# Custom tool with custom input and output
+# 具有自訂輸入和輸出的自訂工具
 class MultiplyNumbersTool(BaseTool):
     name = "multiply_numbers"
-    description = "useful for multiplying two numbers"
+    description = "用於將兩個數字相乘"
     args_schema: Type[BaseModel] = MultiplyNumbersArgs
 
     def _run(
@@ -58,31 +58,31 @@ class MultiplyNumbersTool(BaseTool):
         x: float,
         y: float,
     ) -> str:
-        """Use the tool."""
+        """使用工具"""
         result = x * y
-        return f"The product of {x} and {y} is {result}"
+        return f"{x} 和 {y} 的乘積是 {result}"
 
 
-# Create tools using the Pydantic subclass approach
+# 使用 Pydantic 子類別方法建立工具
 tools = [
     SimpleSearchTool(),
     MultiplyNumbersTool(),
 ]
 
-# Initialize a ChatOpenAI model
+# 初始化 ChatOpenAI 模型
 llm = ChatOpenAI(model="gpt-4o")
 
-# Pull the prompt template from the hub
+# 從 hub 拉取 prompt 模板
 prompt = hub.pull("hwchase17/openai-tools-agent")
 
-# Create the ReAct agent using the create_tool_calling_agent function
+# 使用 create_tool_calling_agent 函數建立 ReAct agent
 agent = create_tool_calling_agent(
     llm=llm,
     tools=tools,
     prompt=prompt,
 )
 
-# Create the agent executor
+# 建立 agent executor
 agent_executor = AgentExecutor.from_agent_and_tools(
     agent=agent,
     tools=tools,
@@ -90,9 +90,9 @@ agent_executor = AgentExecutor.from_agent_and_tools(
     handle_parsing_errors=True,
 )
 
-# Test the agent with sample queries
-response = agent_executor.invoke({"input": "Search for Apple Intelligence"})
-print("Response for 'Search for LangChain updates':", response)
+# 使用範例查詢測試 agent
+response = agent_executor.invoke({"input": "搜尋 Apple Intelligence"})
+print("'搜尋 Apple Intelligence' 的回應:", response)
 
-response = agent_executor.invoke({"input": "Multiply 10 and 20"})
-print("Response for 'Multiply 10 and 20':", response)
+response = agent_executor.invoke({"input": "將 10 和 20 相乘"})
+print("'將 10 和 20 相乘' 的回應:", response)

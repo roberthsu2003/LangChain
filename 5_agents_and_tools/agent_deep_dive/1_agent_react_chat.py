@@ -6,13 +6,13 @@ from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 from langchain_core.tools import Tool
 from langchain_openai import ChatOpenAI
 
-# Load environment variables from .env file
+# 從 .env 檔案載入環境變數
 load_dotenv()
 
 
-# Define Tools
+# 定義工具
 def get_current_time(*args, **kwargs):
-    """Returns the current time in H:MM AM/PM format."""
+    """返回當前時間，格式為 H:MM AM/PM"""
     import datetime
 
     now = datetime.datetime.now()
@@ -20,72 +20,72 @@ def get_current_time(*args, **kwargs):
 
 
 def search_wikipedia(query):
-    """Searches Wikipedia and returns the summary of the first result."""
+    """搜尋維基百科並返回第一個結果的摘要"""
     from wikipedia import summary
 
     try:
-        # Limit to two sentences for brevity
-        return summary(query, sentences=2)
+        # 限制為兩句話以保持簡潔
+        return summary(query, sentences=2, lang="zh")
     except:
-        return "I couldn't find any information on that."
+        return "我找不到相關資訊。"
 
 
-# Define the tools that the agent can use
+# 定義 agent 可以使用的工具
 tools = [
     Tool(
         name="Time",
         func=get_current_time,
-        description="Useful for when you need to know the current time.",
+        description="當你需要知道當前時間時使用",
     ),
     Tool(
         name="Wikipedia",
         func=search_wikipedia,
-        description="Useful for when you need to know information about a topic.",
+        description="當你需要查詢某個主題的資訊時使用",
     ),
 ]
 
-# Load the correct JSON Chat Prompt from the hub
+# 從 hub 載入正確的 JSON Chat Prompt
 prompt = hub.pull("hwchase17/structured-chat-agent")
 
-# Initialize a ChatOpenAI model
+# 初始化 ChatOpenAI 模型
 llm = ChatOpenAI(model="gpt-4o")
 
-# Create a structured Chat Agent with Conversation Buffer Memory
-# ConversationBufferMemory stores the conversation history, allowing the agent to maintain context across interactions
+# 建立具有對話緩衝記憶的結構化聊天 Agent
+# ConversationBufferMemory 儲存對話歷史，讓 agent 能夠在互動中保持上下文
 memory = ConversationBufferMemory(
     memory_key="chat_history", return_messages=True)
 
-# create_structured_chat_agent initializes a chat agent designed to interact using a structured prompt and tools
-# It combines the language model (llm), tools, and prompt to create an interactive agent
+# create_structured_chat_agent 初始化一個設計用於使用結構化 prompt 和工具進行互動的聊天 agent
+# 它結合了語言模型 (llm)、工具和 prompt 來建立互動式 agent
 agent = create_structured_chat_agent(llm=llm, tools=tools, prompt=prompt)
 
-# AgentExecutor is responsible for managing the interaction between the user input, the agent, and the tools
-# It also handles memory to ensure context is maintained throughout the conversation
+# AgentExecutor 負責管理使用者輸入、agent 和工具之間的互動
+# 它還處理記憶以確保在整個對話中保持上下文
 agent_executor = AgentExecutor.from_agent_and_tools(
     agent=agent,
     tools=tools,
     verbose=True,
-    memory=memory,  # Use the conversation memory to maintain context
-    handle_parsing_errors=True,  # Handle any parsing errors gracefully
+    memory=memory,  # 使用對話記憶來保持上下文
+    handle_parsing_errors=True,  # 優雅地處理任何解析錯誤
 )
 
-# Initial system message to set the context for the chat
-# SystemMessage is used to define a message from the system to the agent, setting initial instructions or context
-initial_message = "You are an AI assistant that can provide helpful answers using available tools.\nIf you are unable to answer, you can use the following tools: Time and Wikipedia."
+# 初始系統訊息以設定聊天的上下文
+# SystemMessage 用於定義從系統到 agent 的訊息，設定初始指令或上下文
+initial_message = "你是一個可以使用可用工具提供有用答案的 AI 助手。\n如果你無法回答，可以使用以下工具：Time 和 Wikipedia。"
 memory.chat_memory.add_message(SystemMessage(content=initial_message))
 
-# Chat Loop to interact with the user
+# 聊天迴圈以與使用者互動
 while True:
-    user_input = input("User: ")
+    user_input = input("使用者: ")
     if user_input.lower() == "exit":
         break
 
-    # Add the user's message to the conversation memory
+    # 將使用者的訊息加入對話記憶
     memory.chat_memory.add_message(HumanMessage(content=user_input))
 
-    # Invoke the agent with the user input and the current chat history
+    # 使用使用者輸入和當前聊天歷史調用 agent
     response = agent_executor.invoke({"input": user_input})
-    print("Bot:", response["output"])
+    print("機器人:", response["output"])
 
-    # Add the agent's response to the conversation memory
+    # 將 agent 的回應加入對話記憶
     memory.chat_memory.add_message(AIMessage(content=response["output"]))

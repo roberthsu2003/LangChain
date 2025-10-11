@@ -7,40 +7,40 @@ from langchain.agents import (
 from langchain_core.tools import Tool
 from langchain_openai import ChatOpenAI
 
-# Load environment variables from .env file
+# 從 .env 檔案載入環境變數
 load_dotenv()
 
 
-# Define a very simple tool function that returns the current time
+# 定義一個非常簡單的工具函數，返回當前時間
 def get_current_time(*args, **kwargs):
-    """Returns the current time in H:MM AM/PM format."""
-    import datetime  # Import datetime module to get current time
+    """返回當前時間，格式為 H:MM AM/PM"""
+    import datetime  # 匯入 datetime 模組以取得當前時間
 
-    now = datetime.datetime.now()  # Get current time
-    return now.strftime("%I:%M %p")  # Format time in H:MM AM/PM format
+    now = datetime.datetime.now()  # 取得當前時間
+    return now.strftime("%I:%M %p")  # 格式化時間為 H:MM AM/PM 格式
 
 
-# List of tools available to the agent
+# Agent 可用的工具列表
 tools = [
     Tool(
-        name="Time",  # Name of the tool
-        func=get_current_time,  # Function that the tool will execute
-        # Description of the tool
-        description="Useful for when you need to know the current time",
+        name="Time",  # 工具名稱
+        func=get_current_time,  # 工具將執行的函數
+        # 工具描述
+        description="當你需要知道當前時間時使用",
     ),
 ]
 
-# Pull the prompt template from the hub
-# ReAct = Reason and Action
+# 從 hub 拉取 prompt 模板
+# ReAct = Reason（推理）and Action（行動）
 # https://smith.langchain.com/hub/hwchase17/react
 prompt = hub.pull("hwchase17/react")
 
-# Initialize a ChatOpenAI model
+# 初始化 ChatOpenAI 模型
 llm = ChatOpenAI(
     model="gpt-4o", temperature=0
 )
 
-# Create the ReAct agent using the create_react_agent function
+# 使用 create_react_agent 函數建立 ReAct agent
 agent = create_react_agent(
     llm=llm,
     tools=tools,
@@ -48,15 +48,15 @@ agent = create_react_agent(
     stop_sequence=True,
 )
 
-# Create an agent executor from the agent and tools
+# 從 agent 和工具建立 agent executor
 agent_executor = AgentExecutor.from_agent_and_tools(
     agent=agent,
     tools=tools,
     verbose=True,
 )
 
-# Run the agent with a test query
-response = agent_executor.invoke({"input": "What time is it?"})
+# 使用測試查詢執行 agent
+response = agent_executor.invoke({"input": "現在幾點？"})
 
-# Print the response from the agent
-print("response:", response)
+# 印出 agent 的回應
+print("回應:", response)

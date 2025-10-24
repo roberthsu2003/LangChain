@@ -208,7 +208,7 @@ embeddings = HuggingFaceEmbeddings(
 )
 
 # 設定向量資料庫路徑（使用絕對路徑避免權限問題）
-db_path = os.path.abspath("./db")
+db_path = os.path.abspath("./db/mobile")
 
 # 檢查資料庫是否已存在，避免每次都重建
 if Path(db_path).exists():

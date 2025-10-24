@@ -148,9 +148,19 @@ echo "HUGGINGFACE_API_KEY=your_api_key" > .env
 - 語言支援: 中英雙語專門優化
 - 特點: 專門為中英混合輸入訓練,減少語言偏差
 
-#### 推薦建議
+#### 推薦建議2個繁體中文
 
-**主要處理繁體中文內容,推薦使用 `jina-embeddings-v2-base-zh`**,原因如下:
+**準確度**
+
+- **multilingual-e5-large實測時,準確度較高**
+- **jina-embeddings-v2-base-zh 實測時,準確度一般**
+
+**選擇 multilingual-e5-large 的情況:**
+- 需要處理多種語言(不只是中英文)
+- 需要更大的 embedding 維度(1024 vs 768)
+- 文檔都很短(<512 tokens)
+
+**`jina-embeddings-v2-base-zh`**,優點原因如下:
 
 1. **中文性能優異** - 在同等體積的中文模型中,Jina Embeddings 在所有涉及中文的類別中都表現優於 E5 Multilingual
 
@@ -160,10 +170,7 @@ echo "HUGGINGFACE_API_KEY=your_api_key" > .env
 
 4. **輕量高效** - 模型更小(161M vs 560M),推理速度更快,部署成本更低
 
-**選擇 multilingual-e5-large 的情況:**
-- 需要處理多種語言(不只是中英文)
-- 需要更大的 embedding 維度(1024 vs 768)
-- 文檔都很短(<512 tokens)
+
 
 **使用範例:**
 ```python
@@ -257,7 +264,7 @@ retriever = db.as_retriever(search_type="similarity", search_kwargs={"k": 3})
 
 ### Q3: 如何選擇 Embedding 模型？
 - 中文內容：推薦 `jinaai/jina-embeddings-v2-base-zh`
-- 多語言：`intfloat/multilingual-e5-large`
+- 多語言和中文內容：推薦 `intfloat/multilingual-e5-large`
 - 效能優先：OpenAI `text-embedding-3-small`
 
 ### Q4: 如何優化檢索效果？
